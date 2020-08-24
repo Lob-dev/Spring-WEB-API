@@ -32,8 +32,7 @@ RESTful Architecture를 적용한 HTTP API 제작 Repo 입니다.
 
 #### 1-1. Github 계정 생성
 
-참고) 갓대희님의 GitHub 회원 가입하기 게시글
-https://goddaehee.tistory.com/218
+참고) 갓대희님의 GitHub 회원 가입하기 게시글 [GOOGLE](https://goddaehee.tistory.com/218)
 
 
 #### 1-2 개발환경 구성
