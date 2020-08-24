@@ -54,7 +54,7 @@ RESTful Architecture를 적용한 HTTP API 제작 Repo 입니다.
 #### Spring 환경 구축과 Spring Boot 환경 구축 비교
 
 
-##### 주간보고 [Goole docs]()
+##### 1주차 주간보고 [Goole docs](https://docs.google.com/document/d/19fLz2yBGg9_bgwa-a8VnRS4WH8QNGi6Q5_N4UJuDquc/edit)
 
 
 ## 2주차 Inteface Guide Document 작성
