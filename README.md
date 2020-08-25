@@ -28,7 +28,9 @@ RESTful Architecture를 적용한 HTTP API 제작 Repo 입니다.
 
 
 <hr/>
-## 1주차 스프링 개발 환경 구축 [Link-repo](https://github.com/coffeescriptSERRL/Spring-Legacy-Project)
+## 1주차 스프링 개발 환경 구축 
+<br/>[Link-repo](https://github.com/coffeescriptSERRL/Spring-Legacy-Project)
+<br/>
 
 ## 2주차 Inteface Guide Document 작성
 
