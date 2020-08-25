@@ -30,31 +30,39 @@ RESTful Architecture를 적용한 HTTP API 제작 Repo 입니다.
 <hr/>
 ## 1주차 스프링 개발 환경 구축
 
-#### 1-1. Github 계정 생성
+# Spring-Legacy-Project
+Spring-WEB-API 만들기 1주차 과정 Spring-Legacy-Project 구축하기
 
-참고) 갓대희님의 GitHub 회원 가입하기 게시글 [Tistory](https://goddaehee.tistory.com/218)
+Spring-mvc (5.1.8) + mariadb (2.0.3) + mybatis (3.4.4)
+<br/>
+<br/>
 
++ ### GitHub 계정 생성
+  + GitHub 회원 가입하기 [Tistory-link](https://goddaehee.tistory.com/218)
+  <br/>
+  <br/>
++ ### 개발환경 구성
+  + JDK 1.8 설치하기 [GitHub-link](https://github.com/ojdkbuild/ojdkbuild)
+    해당 사이트에서 1.8.0_252-2 LTS 버전 다운로드 받기
+  + 오픈 JDK란?<br/>
+      기존에 Oracle이 가지고 있던 플러그인이 포함된 JDK와 JVM가 유료화되면서 해당 부분을 제거한 JDK와 JVM을 제공하는 오픈소스 기반의 JDK이다.
+      Java SE 7부터 작성된 모든 JDK는 OpenJDK 기반의 레퍼런스 소스 코드를 사용하므로 아무 문제없이 사용이 가능하다!
 
-#### 1-2 개발환경 구성
+  + Eclipse, Spring 다운로드 및 설치 [Tistory](https://devfunpj.tistory.com/2?category=859537)
 
-해당 Step에서 사용될 환경은
+  + Tomcat 9.x 설치하기<br/> [link](https://tomcat.apache.org/download-90.cgi)
+    해당 홈페이지에서 맨 위에 존재하는 ZIP 파일을 다운로드 받아 적당한 위치에 압축을 해제한다.<br/>
+    그후 [Tistory](https://devfunpj.tistory.com/3?category=859537)
 
-+ JDK 1.8
-+ Spring MVC 5.1.8
-+ Tomcat 9.X
-+ maven
-  
-입니다.
+  + 스프링 개발 환경 구축 Hello World [Tistory](https://devfunpj.tistory.com/4?category=859537)
 
+  + mariadb, mySql Workbench 설치 및 샘플 DB 구축 [Tistory](https://devfunpj.tistory.com/5?category=859537)
 
-#### mybatis 설정
+  + 스프링, Mariadb, MyBatis 연동, 데이터 조회 [Tistory](https://devfunpj.tistory.com/6?category=859537)
 
++ ### Spring 환경 구축과 Spring Boot 환경 구축 비교
+  + Spring Boot 환경 구축하기 [For Intellij]
 
-
-#### Spring 환경 구축과 Spring Boot 환경 구축 비교
-
-
-##### 1주차 주간보고 [Goole docs](https://docs.google.com/document/d/19fLz2yBGg9_bgwa-a8VnRS4WH8QNGi6Q5_N4UJuDquc/edit)
 
 
 ## 2주차 Inteface Guide Document 작성
