@@ -31,7 +31,7 @@ RESTful Architecture를 적용한 HTTP API 제작 Repo 입니다.
 ## 1주차 스프링 개발 환경 구축 
 <hr/>
 ### Spring-Legacy-Project
-Spring-WEB-API 만들기 1주차 과정 Spring-Legacy-Project 구축하기
+  <br/>Spring-WEB-API 만들기 1주차 과정 Spring-Legacy-Project 구축하기<br/>
 
 Spring-mvc (5.1.8) + mariadb (2.0.3) + mybatis (3.4.4)
 <br/>
