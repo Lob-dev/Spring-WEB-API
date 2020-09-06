@@ -77,9 +77,21 @@ Spring-mvc (5.1.8) + mariadb (2.0.3) + mybatis (3.4.4)
  + readme Markdown 학습<br/>
       [link-heropy](https://heropy.blog/2017/09/30/markdown/)<br/>
       [link-GitHub](https://gist.github.com/ihoneymon/652be052a0727ad59601)
-      <br/>
+      <br/><br/>
       
 ## 2주차 Inteface Guide Document 작성
+
+  <br/>공공 데이터 API 문서와 카카오 API 문서를 참고해서 이번 프로젝트의 API 문서 초안 만들기.<br/>
+
+  + HTTP/ HTTPS 란?
+  + HTTP Status Code 학습하기<br/>
+    +  
+  + API란 무엇일까?<br/>
+  + REST 아키텍처는 무엇일까?<br/>
+    + 관련 용어 학습하기 (Client-Server, Stateless, Cache, Uniform Interface, Layered System...)<br/>
+    + self-descrive message 란?<br/>
+    + HATEOAS 란?<br/>
+<br/>
 
 ## 3주차 RESTful Architecture가 적용된 간단한 HTTP API 만들기
 
