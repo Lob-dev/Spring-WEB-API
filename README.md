@@ -84,17 +84,22 @@ Spring-mvc (5.1.8) + mariadb (2.0.3) + mybatis (3.4.4)
   <br/>공공 데이터 API 문서와 카카오 API 문서를 참고해서 이번 프로젝트의 API 문서 초안 만들기.<br/>
 
   + HTTP/ HTTPS 란?
-  + HTTP Status Code 학습하기<br/>
-    + 10X : 정보를 확인하는 CODE<br/>
-    + 20X : 통신이 성공했다고 알려주는 CODE<br/>
-    + 30X : HTTP (URL) Redirect 요청 CODE<br/>
-    + 40X : 클라이언트 오류<br/>
-    + 50X : 서버의 오류<br/>
-  + API란 무엇일까?<br/>
-  + REST 아키텍처는 무엇일까?<br/>
-    + 관련 용어 학습하기 (Client-Server, Stateless, Cache, Uniform Interface, Layered System...)<br/>
-    + self-descrive message 란?<br/>
-    + HATEOAS 란?<br/>
+    + HTTP :
+    + HTTPS :
+  <br/>
+  + HTTP Status Code 학습하기
+    + 10X : 정보를 확인하는 CODE
+    + 20X : 통신이 성공했다고 알려주는 CODE
+    + 30X : HTTP (URL) Redirect 요청 CODE
+    + 40X : 클라이언트 오류
+    + 50X : 서버의 오류
+    <br/>
+  + API란 무엇일까?
+  <br/>
+  + REST 아키텍처는 무엇일까?
+    + 관련 용어 학습하기 (Client-Server, Stateless, Cache, Uniform Interface, Layered System...)
+    + self-descrive message 란?
+    + HATEOAS 란?
 <br/>
 
 ## 3주차 RESTful Architecture가 적용된 간단한 HTTP API 만들기
