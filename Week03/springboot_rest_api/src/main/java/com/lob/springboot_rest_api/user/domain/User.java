@@ -2,8 +2,8 @@ package com.lob.springboot_rest_api.user.domain;
 
 import lombok.*;
 
-@Builder @Getter @NoArgsConstructor @AllArgsConstructor
-@EqualsAndHashCode(of = "userId")
+@Builder @Getter @Setter @NoArgsConstructor @AllArgsConstructor
+@EqualsAndHashCode(of = "id")
 public class User {
 
     private String id;

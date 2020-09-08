@@ -6,6 +6,7 @@ import lombok.Setter;
 @Getter @Setter
 public class createUserForm {
 
+    private String id;
     private String name;
     private String hr_Organ;
 

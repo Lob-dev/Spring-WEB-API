@@ -1,0 +1,18 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<div class="container">
+    <form action="/api/account" method="post">
+        <div class="form-group">
+            <label for="id">아이디</label>
+            <input type="text" id="id" name="id" placeholder="이름을 입력하세요">
+            <label for="name">별명</label>
+            <input type="text" id="name" name="name" placeholder="사용할 별명을 입력하세요">
+            <label for="hr_Organ">부서명</label>
+            <input type="text" id="hr_Organ" name="hr_Organ" placeholder="부서명을 입력하세요">
+        </div>
+        <button type="submit">등록</button>
+    </form>
+</div>
+</body>
+</html>

@@ -1,10 +1,8 @@
 package com.lob.springboot_rest_api.user.controller;
 
-import com.lob.springboot_rest_api.user.domain.User;
 import com.lob.springboot_rest_api.user.dto.UserDTO;
 import com.lob.springboot_rest_api.user.service.UserService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -18,17 +16,19 @@ public class ApiController {
     }
 
     @PostMapping("/api/account")
-    public String create(createUserForm formdata) {
+    public String create(createUserForm formdata, Model model) {
         UserDTO userDTO = UserDTO.builder()
+                .id(formdata.getId())
                 .name(formdata.getName())
                 .hr_Organ(formdata.getHr_Organ())
                 .build();
-        UserService.join(userDTO);
+        userService.join(userDTO);
 
+        model.addAttribute("user-ID", userDTO.getId());
         return "templates/sucess";
     }
 
-    @GetMapping("/api/users/{id}/{year}/{month}")
+  /*  @GetMapping("/api/users/{id}/{year}/{month}")
     public String getMonthAccessTotal(@PathVariable String id, String year, String Month) {
 
         return ;
@@ -56,7 +56,7 @@ public class ApiController {
     public String getMonthIsOrganTotal(@PathVariable String id, String year, String Month, String Organ ){
 
         return null;
-    }
+    }*/
 
 
 }

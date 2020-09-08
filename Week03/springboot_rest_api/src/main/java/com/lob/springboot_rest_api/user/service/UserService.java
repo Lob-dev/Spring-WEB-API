@@ -1,6 +1,6 @@
 package com.lob.springboot_rest_api.user.service;
 
-import com.lob.springboot_rest_api.user.Repository.JdbcTemplateUserRepository;
+import com.lob.springboot_rest_api.user.Repository.UserRepository;
 import com.lob.springboot_rest_api.user.domain.User;
 import com.lob.springboot_rest_api.user.dto.UserDTO;
 import org.springframework.stereotype.Service;
@@ -8,15 +8,17 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserService {
 
-    private final JdbcTemplateUserRepository userRepository;
+    private final UserRepository userRepository;
 
-    public UserService(JdbcTemplateUserRepository userRepository) {
+    public UserService(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
 
-    public Long join(UserDTO userDTO) {
-        validateDuplicateMember(userDTO);
+
+    public String join(UserDTO userDTO) {
+        findLocalMember(userDTO);
         User user = User.builder()
+                .id(userDTO.getId())
                 .name(userDTO.getName())
                 .hr_Organ(userDTO.getHr_Organ())
                 .build();
@@ -25,13 +27,9 @@ public class UserService {
         return user.getId();
     }
 
-    private void validateDuplicateMember(UserDTO userDTO) {
-        userRepository.findByName(userDTO.getName()).ifPresent(u -> {
+    private void findLocalMember(UserDTO userDTO) {
+        userRepository.findById(userDTO.getId()).ifPresent(u -> {
             throw new IllegalStateException("이미 존재하는 유저입니다.");
-        })
-
-
-
+        });
     }
-
 }
