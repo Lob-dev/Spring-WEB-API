@@ -1,9 +1,34 @@
 package com.lob.springboot_api.controller;
 
-public class ApiCotroller {
-    // API 요청 컨트롤러
-    // request code = WB / code_explain = WRITEBOARD
-    // requestID Generate value +1 / userID userID / requestCode = requestcode.requestCode / createDate = dateTime
+import com.lob.springboot_api.entity.RequestInfo;
+import com.lob.springboot_api.service.RequestService;
+import net.minidev.json.JSONArray;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RestController;
 
-    // requestService.requestForWriteBoard(UserDTO.getUserID,"WB") Logic을 진행할 때 DATE 생성 (datetime format YYMMDDhhmm)
+import java.util.HashMap;
+import java.util.List;
+
+
+@RestController
+public class ApiCotroller {
+
+    private final RequestService requestService;
+
+    public ApiCotroller(RequestService requestService) {
+        this.requestService = requestService;
+    }
+
+
+    @GetMapping("/api/users/{year}")
+    public ResponseEntity getMonthAccessTotal(@PathVariable String year) {
+
+        List<RequestInfo> res  = requestService.findByYear(year);
+        //System.out.println(res);
+
+        return ResponseEntity.ok().body(JSONArray.toJSONString(res));
+    }
+
 }
