@@ -162,6 +162,9 @@ Spring-mvc (5.1.8) + mariadb (2.0.3) + mybatis (3.4.4)
     + 502 Bad Gateway : 서버가 요청을 처리하는데 필요한 응답을 얻기 위해 작업하는 동안 잘못된 응답을 수신한 것을 알려주는 code
     + 503 Service Unavailable : 서버가 요청을 처리할 준비가 되어있지 않음을 알려주는 code. (작동 중단, 과부화 등)
     <br/>
+    
+    
+    
   + 브라우저에서 URL을 입력하여 서버에서 응답하는 과정은?
     + 1. Web brower가 해당 URL을 해석한다. 만약 URL이 문법에 맞지 않는다면 검색 엔진으로 해당 요청을 검색한다.
     + 2. URL이 문법에 맞다면 URL의 host (현재 unicode로 되어있음) 부분을 (host name에서 허용된 문자로) = Punycode encoding 한다.
@@ -182,12 +185,12 @@ Spring-mvc (5.1.8) + mariadb (2.0.3) + mybatis (3.4.4)
     + 7-1-4. Client 의 SSL에서 앞서 받은 인증서를 기반으로 encoding을 진행한다.
     + 7-1-5. SSL에서 TCP 계층으로 데이터를 전송한다. 이후 (TCP(세그먼트) -> IP(데이터그램) -> Data Link(Frame) -> ethernet, Wifi, Modem.. -> router -> Server )
     + 7-2-1. HTTP 요청일 경우 바로 TCP로 전달하여 3-way handshaking 만을 진행하고 HTTP Protocol을 통하여 요청한다. (평문)
-    + client 에서 요청과 header를 보낸 후 요청 내용이 완료되었음을 알리는 한 줄 바꿈 (\n)을 서버에 보낸다.
-    + 서버가 요청을 수신하고 해당 요청을 매개 변수로 구분한다. (HTTP Method로 구분, 직접 URL을 입력한 경우 GET)
-    + 서버는 해당 서버에 구성된 가상 호스트를 확인하고 요청을 수락할 수 있는지 확인한 뒤(안된다면 202, 401, 403 등을 응답), 해당 요청에 따른 처리를 진행하고 client에게 응답한다.
-    + 해당 응답을 받은 Browser가 그에따른 처리를 한다. (html, css, js 구문 분석 -> 렌더링 -> real DOM 구성(React, Vue는 Virtual DOM) -> 렌더 트리 구성 -> 레이아웃 배치 -> 랜더 트리 그리기(화면 생성..등))
-    + 해당 응답이 HTML, CSS, JS를 제외한 Image 같은 Media Type의 요소에 대한 요청이 있을 경우 서버에서 재 요청을 요구한다.
-    + Client가 재요청을 진행하면, Image 같은 Media Type 을 응답하여 해당 요소들을 배치하고 Web page 구성이 끝난다. 
+    + 8. client 에서 요청과 header를 보낸 후 요청 내용이 완료되었음을 알리는 한 줄 바꿈 (\n)을 서버에 보낸다.
+    + 8-1. 서버가 요청을 수신하고 해당 요청을 매개 변수로 구분한다. (HTTP Method로 구분, 직접 URL을 입력한 경우 GET)
+    + 8-2. 서버는 해당 서버에 구성된 가상 호스트를 확인하고 요청을 수락할 수 있는지 확인한 뒤(안된다면 202, 401, 403 등을 응답), 해당 요청에 따른 처리를 진행하고 client에게 응답한다.
+    + 8.3. 해당 응답을 받은 Browser가 그에따른 처리를 한다. (html, css, js 구문 분석 -> 렌더링 -> real DOM 구성(React, Vue는 Virtual DOM) -> 렌더 트리 구성 -> 레이아웃 배치 -> 랜더 트리 그리기(화면 생성..등))
+    + 8-4. 해당 응답이 HTML, CSS, JS를 제외한 Image 같은 Media Type의 요소에 대한 요청이 있을 경우 서버에서 재 요청을 요구한다.
+    + 8-5. Client가 재요청을 진행하면, Image 같은 Media Type 을 응답하여 해당 요소들을 배치하고 Web page 구성이 끝난다. 
     <br/>
     
   + 궁금한 것 
