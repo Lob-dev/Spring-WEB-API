@@ -91,19 +91,21 @@ Spring-mvc (5.1.8) + mariadb (2.0.3) + mybatis (3.4.4)
   <br/>API 가이드와 샘플 데이터를 사용하여 간단한 API 만들기<br/>
   
   + HTTP : Hypertext Transfer Protocol 은 HTML과 같은 문서를 전송하기 위한 Application layer Protocol이다.<br/>
-    +      Web Browser(Client) - Web Server Model 의 요청 응답 구조로 되어 있으며, 요청을 처리한 후<br/>
-    +      정보나 상태를 가지지 않는 Stateless Protocol 이기도 하다.<br/>
-    +      Stateless Protocol은 각 요청을 독립적인 트랜잭션으로 취급하며, 독립적인 쌍의 요청과 응답을 가진다.<br/>
-    +      지속적으로 클라이언트와 통신을 연결하고 있지 않기때문에 상대적으로 많은 리소스를 아낄 수 있다.<br/>
-    +      많은 요청과 응답 가운데 진행되는 연결 / 해제에 대한 오버헤드가 존재하므로 요청이 많은 서비스에서는<br/>
-    +      따로 해결책을 준비하여야 한다.<br/>
-    +      서버에서 상태를 기억할 수 있도록 쿠키, 세션, 토큰을 통하여 정보를 저장하고 서버가 클라이언트를 식별할 수<br/>
-    +      있게끔 처리할 수 있다. <br/>
-  + HTTPS : <br/>
+    + Web Browser(Client) - Web Server Model 의 요청 응답 구조로 되어 있으며, 요청을 처리한 후<br/>
+    + 정보나 상태를 가지지 않는 Stateless Protocol 이기도 하다.<br/>
+    + Stateless Protocol은 각 요청을 독립적인 트랜잭션으로 취급하며, 독립적인 쌍의 요청과 응답을 가진다.<br/>
+    + 지속적으로 클라이언트와 통신을 연결하고 있지 않기때문에 상대적으로 많은 리소스를 아낄 수 있다.<br/>
+    + 많은 요청과 응답 가운데 진행되는 연결 / 해제에 대한 오버헤드가 존재하므로 요청이 많은 서비스에서는<br/>
+    + 따로 해결책을 준비하여야 한다.<br/>
+    + 서버에서 상태를 기억할 수 있도록 쿠키, 세션, 토큰을 통하여 정보를 저장하고 서버가 클라이언트를 식별할 수<br/>
+    + 있게끔 처리할 수 있다. <br/>
+  + HTTPS : HTTP over Secure Socket Layer(SSL) 를 말하며, 독립적인 계층을 가진 SSL을 이용한 HTTP 통신 방식을 의미한다.<br/>
+    + SSL이 적용되어 있을 경우 응용 계층의 프로토콜들은 외부로 보내는 데이터를 일차적으로 TCP가 아닌 SSL에 보내게되고, <br/>
+    + SSL에서 받은 데이터를 암호화하여 TCP로 전달해서 외부 인터넷으로 전달하게 된다. 응답은 역순(APP은 SSL을 TCP로 인식한다.)<br/>
   + HTTP 요청 구조<br/>
     + Start Line (HTTP Method : GET, POST.., Request Target : URL.., HTTP Version : 1.0, 1.1, 2.0..)<br/>
     + Header : HTTP 요청 그 자체에 대한 정보를 가지고 있는 구조이다.(Host, Content-Type, Accept, Connection..)<br/>
-    + Body   : <br/>
+    + Body   : HTTP 요청이 전송하는 데이터를 담는 부분이다, 전송하는 데이터가 없다면 Body 부분은 비어있다.<br/>
   + HTTP Status Code 학습하기<br/>
     + 10X : 정보를 확인하는 CODE<br/>
     + 20X : 통신이 성공했다고 알려주는 CODE<br/>
