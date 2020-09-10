@@ -163,7 +163,6 @@ Spring-mvc (5.1.8) + mariadb (2.0.3) + mybatis (3.4.4)
     + 503 Service Unavailable : 서버가 요청을 처리할 준비가 되어있지 않음을 알려주는 code. (작동 중단, 과부화 등)
     <br/>
   + 브라우저에서 URL을 입력하여 서버에서 응답하는 과정은?
-  + 
     + 1. Web brower가 해당 URL을 해석한다. 만약 URL이 문법에 맞지 않는다면 검색 엔진으로 해당 요청을 검색한다.
     + 2. URL이 문법에 맞다면 URL의 host (현재 unicode로 되어있음) 부분을 (host name에서 허용된 문자로) = Punycode encoding 한다.
     + 3. HTTP Strict Transport Security(HTTPS만을 사용하여 통신해야 한다고 웹 사이트가 웹 브라우저에 알리는 보안기능) 목록을 확인한다.
@@ -172,14 +171,12 @@ Spring-mvc (5.1.8) + mariadb (2.0.3) + mybatis (3.4.4)
     + 5-1. 없을 경우 Local의 hosts 파일을 확인한다. 
     + 5-2 해당 경우에도 없는 (최초 요청) 경우 DNS(Domain Name Server)에 요청을 보낸다.
     <br/>
-  + 
     + 6. ARP(Address Resolution Protocol) brodcast를 보내기 위해서는 요청 대상의 IP와 MAC address가 필요하므로 ARP cache를 통해 ARP 항목을 확인하고 해당 정보를 반환받는다.
     + 6-1. 해당 정보가 없는 경우 IP address가 local subnet에 있는지 확인하기 위해 routing table 조회한다.
     + 6-2. 있는 경우 subnet과 연관된 interface 사용한다.
     + 6-3. 없는 경우 기본 gateway의 subnet과 연관된 interface 사용한다.
     + 6-4. (2, 3 이후) Network library는 Link Layer에 ARP 요청을 보낸다.
     <br/>
-  +
     + 7-1-1. HTTPS 요청일 경우 Application은 (TCP로 생각하고 있는) 특정한 계층을 가진 SSL로 해당 정보를 전달한다.
     + 7-1-2. TCP 계층을 통해 Client와 Server가 3-way handshaking를 진행한다. 
     + 3-way handshaking 란?: TCP 소켓은 연결 설정과정 중에 총 3번의 대화를 주고 받는다. (SYN : 연결 요청 플래그 / ACK : 응답) (Client->Server)SYN -> (Server->Client)SYN + ACK -> (Client->Server)ACK
@@ -188,7 +185,6 @@ Spring-mvc (5.1.8) + mariadb (2.0.3) + mybatis (3.4.4)
     + 7-1-5. SSL에서 TCP 계층으로 데이터를 전송한다. 이후 (TCP(세그먼트) -> IP(데이터그램) -> Data Link(Frame) -> ethernet, Wifi, Modem.. -> router -> Server )
     + 7-2-1. HTTP 요청일 경우 바로 TCP로 전달하여 3-way handshaking 만을 진행하고 HTTP Protocol을 통하여 요청한다. (평문)
     <br/>
-  + 요청/ 응답 형식
     + client 에서 요청과 header를 보낸 후 요청 내용이 완료되었음을 알리는 한 줄 바꿈 (\n)을 서버에 보낸다.
     + 서버가 요청을 수신하고 해당 요청을 매개 변수로 구분한다. (HTTP Method로 구분, 직접 URL을 입력한 경우 GET)
     + 서버는 해당 서버에 구성된 가상 호스트를 확인하고 요청을 수락할 수 있는지 확인한 뒤(안된다면 202, 401, 403 등을 응답), 해당 요청에 따른 처리를 진행하고 client에게 응답한다.
