@@ -110,9 +110,9 @@ Spring-mvc (5.1.8) + mariadb (2.0.3) + mybatis (3.4.4)
     + Spring 계층 구조와 사용되는 Model 정리 [link-notion](https://www.notion.so/03-Model-2dddcc91d7994d0abb49f729d154edf6)
     + Spring AOP란? (학습 중)
   <br/>
+  
   + HTTP : Hypertext Transfer Protocol 은 HTML과 같은 문서를 전송하기 위한 Application layer Protocol이다.
-    + Web Browser(Client) - Web Server Model 의 요청 응답 구조로 되어 있으며, 요청을 처리한 후
-    + 정보나 상태를 가지지 않는 Stateless Protocol 이기도 하다.
+    + Web Browser(Client) - Web Server Model 의 요청 응답 구조로 되어 있으며, 요청을 처리한 후 정보나 상태를 가지지 않는 Stateless Protocol 이기도 하다.
     + Stateless Protocol은 각 요청을 독립적인 트랜잭션으로 취급하며, 독립적인 쌍의 요청과 응답을 가진다.
     + 지속적으로 클라이언트와 통신을 연결하고 있지 않기때문에 상대적으로 많은 리소스를 아낄 수 있다.
     + 많은 요청과 응답 가운데 진행되는 연결 / 해제에 대한 오버헤드가 존재하므로 요청이 많은 서비스에서는 따로 해결책을 준비하여야 한다.
