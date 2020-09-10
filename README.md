@@ -132,20 +132,17 @@ Spring-mvc (5.1.8) + mariadb (2.0.3) + mybatis (3.4.4)
     + 101 Switching Protocol : Client의 Upgrade 요청 헤더에 따른 응답. 서버에서 프로토콜을 변경할 것임을 알려주는 code.
     + 102 Processing : 서버가 요청에 대해서 수신하고 처리 중이지만, 아직 응답할 수 없다는 것을 알려주는 code.
     + 103 Early Hints : 주로 Link 헤더와 함께 사용되며, 응답을 준비하는 동안 Client가 사전 로딩을 시작하도록 하는 Code.
-    <br/>
     + 20X의 의미 : 통신이 성공했다고 알려주는 CODE
     + 200 OK : 메서드에 따라 의미가 변경되는 code로써 요청이 성공적으로 진행되었다는 것을 알려주는 code.
     + 201 Created : 요청이 성공적이였으며, 그에 따른 새로운 리소스가 생성되었음을 알려주는 code.
     + 202 Accepted : 요청을 수신했지만, 해당 요청에 따른 행동을 할 수 없음을 알려주는 code. (비동기, 배치와 관련된 code이다.)
     + 204 No Content : 요청은 성공하였으나, 보내줄 컨텐츠는 없다는 것을 알려주는 code.
-    <br/>
     + 30X의 의미 : HTTP (URL) Redirect 요청 CODE
     + 300 Multiple Choice : 요청에 대해서 하나 이상의 응답이 가능한 경우를 알려주는 code. (client는 하나의 요청을 반드시 선택해야 함. )
     + 301 Moved Permanently : 요청한 리소스의 URI가 변경되었음을 알려주는 code.
     + 302 Found : 요청한 리소스의 URI가 일시적으로 변경되었음을 의미하는 code.
     + 303 See Other : client가 요청한 리소스를 다른 URI에 GET 요청을 해야 얻어낼 수 있음을 알려주는 code. (서버가 직접 응답하는 경우이다.)
     + 304 Not Modified : cache를 목적으로 사용되는 code로써 client에게 응답이 수정되지 않았다는 것을 알려주고, 응답의 캐시된 버전을 사용하게 하는 code.
-    <br/>
     + 40X의 의미 : 클라이언트의 요청에 따른 오류
     + 400 Bad Request : 잘못된 문법에 인하여서 서버가 요청을 이해할 수 없음을 의미하는 code.
     + 401 Unauthorized : 해당 Client에게 인증을 요청하는 Code. (Login..)
@@ -153,7 +150,6 @@ Spring-mvc (5.1.8) + mariadb (2.0.3) + mybatis (3.4.4)
     + 404 Not Found : 서버에서 리소스를 찾을 수 없거나, Client에서 알 수 없는 URL일 경우 혹은 리소스를 숨기기 위하여 사용되기도 하는 code.
     + 405 Method Not Allowed : 해당 요청에따른 메소드가 있음을 서버는 알고 있으나, 제거되었거나 혹은 사용할 수 없음을 알려주는 code.
     + 409 Conflict : 해당 요청이 서버의 상태와 충돌될 경우 응답되는 code.
-    <br/>
     + 50X의 의미 : 서버의 오류
     + 500 Internal Server Error : 서버가 해당 요청에 따른 처리방법을 알 수 없음을 알려주는 code.
     + 502 Bad Gateway : 서버가 요청을 처리하는데 필요한 응답을 얻기 위해 작업하는 동안 잘못된 응답을 수신한 것을 알려주는 code
