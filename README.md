@@ -83,34 +83,49 @@ Spring-mvc (5.1.8) + mariadb (2.0.3) + mybatis (3.4.4)
 
   <br/>공공 데이터 API 문서와 카카오 API 문서를 참고해서 이번 프로젝트의 API 문서 초안 만들기.<br/>
 
-  + HTTP/ HTTPS 란?<br/>
-    + HTTP : <br/>
-    + HTTPS : <br/>
-  + Request HEADER, BODY 구조 학습<br/>  
+  + API란 무엇일까?<br/>
+  + REST API 작성 규칙
+
+## 3주차 RESTful Architecture가 적용된 간단한 HTTP API 만들기
+  
+  <br/>API 가이드와 샘플 데이터를 사용하여 간단한 API 만들기<br/>
+  
+  + HTTP : Hypertext Transfer Protocol 은 HTML과 같은 문서를 전송하기 위한 Application layer Protocol이다.<br/>
+    +      Web Browser(Client) - Web Server Model 의 요청 응답 구조로 되어 있으며, 요청을 처리한 후<br/>
+    +      정보나 상태를 가지지 않는 Stateless Protocol 이기도 하다.<br/>
+    +      Stateless Protocol은 각 요청을 독립적인 트랜잭션으로 취급하며, 독립적인 쌍의 요청과 응답을 가진다.<br/>
+    +      지속적으로 클라이언트와 통신을 연결하고 있지 않기때문에 상대적으로 많은 리소스를 아낄 수 있다.<br/>
+    +      많은 요청과 응답 가운데 진행되는 연결 / 해제에 대한 오버헤드가 존재하므로 요청이 많은 서비스에서는<br/>
+    +      따로 해결책을 준비하여야 한다.<br/>
+    +      서버에서 상태를 기억할 수 있도록 쿠키, 세션, 토큰을 통하여 정보를 저장하고 서버가 클라이언트를 식별할 수<br/>
+    +      있게끔 처리할 수 있다. <br/>
+  + HTTPS : <br/>
+  + HTTP 요청 구조<br/>
+    + Start Line (HTTP Method : GET, POST.., Request Target : URL.., HTTP Version : 1.0, 1.1, 2.0..)<br/>
+    + Header : HTTP 요청 그 자체에 대한 정보를 가지고 있는 구조이다.(Host, Content-Type, Accept, Connection..)<br/>
+    + Body   : <br/>
   + HTTP Status Code 학습하기<br/>
     + 10X : 정보를 확인하는 CODE<br/>
     + 20X : 통신이 성공했다고 알려주는 CODE<br/>
     + 30X : HTTP (URL) Redirect 요청 CODE<br/>
     + 40X : 클라이언트 오류<br/>
     + 50X : 서버의 오류<br/>
-  + API란 무엇일까?<br/>
   + REST 아키텍처는 무엇일까?<br/>
     + 관련 용어 학습하기 (Client-Server, Stateless, Cache, Uniform Interface, Layered System...)<br/>
     + self-descrive message 란?<br/>
     + HATEOAS 란?<br/>
 
-
-## 3주차 RESTful Architecture가 적용된 간단한 HTTP API 만들기
   
-  <br/>API 문서와 데이터를 사용하여 간단한 API 만들기<br/>
-  
-  + JSON란 무엇일까?<br/>
-  + 브라우저에 URL을 입력했을 경우 서버에서 응답하는 과정 설명하기<br/>
-  + API 문서 초안 수정해보기<br/>
-  + Spring의 Restcontroller 어노테이션을 이용해서 API 작성해보기<br/>
-  + 해당 API의 TEST CASE 작성하기<br/>
-  + JPA 학습 해보기<br/>
+  + 궁금한 것 <br/>
+    + JSON란 무엇일까?<br/>
+    + 브라우저에 URL을 입력했을 경우 서버에서 응답하는 과정 설명하기<br/>
+    + Spring의 Restcontroller 어노테이션을 이용해서 API 작성해보기<br/>
+    + 해당 API의 TEST CASE 작성하기<br/>
+    + JPA 학습 해보기<br/>
 
 ## 4주차 API 구축을 위한 SQL 작성하기
-
+  
+  <br/>
+  
+    + API 문서 초안 수정해보기<br/>
 
