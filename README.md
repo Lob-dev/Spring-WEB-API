@@ -59,73 +59,112 @@ Spring-mvc (5.1.8) + mariadb (2.0.3) + mybatis (3.4.4)
   + Spring Boot 환경 구축하기 [For Intellij]
 
 <br/> 주간 보고 파일 [Google-docs](https://docs.google.com/document/d/19fLz2yBGg9_bgwa-a8VnRS4WH8QNGi6Q5_N4UJuDquc/edit) <br/>
- + 오픈 JDK란?<br/>
+ + 오픈 JDK란?
    + 기존에 Oracle이 가지고 있던 플러그인이 포함된 JDK와 JVM가 유료화되면서 해당 부분을 제거한 JDK와 JVM을 제공하는 오픈소스 기반의 JDK이다.
-   + Java SE 7부터 작성된 모든 JDK는 OpenJDK 기반의 레퍼런스 소스 코드를 사용하므로 아무 문제없이 사용이 가능하다!<br/>
- + MVC Model이란?<br/>
-   + Model View Controller로 구성하는 패턴을 말하며, 뷰와 비즈니스 로직을 분리하여 서로에게 영향없이 데이터와 뷰를 변경할 수 있게 만든것이다.<br/>
-   + 모델은 데이터를 처리하는 부분을 가리키고 뷰는 화면에 표시되는 부분을 말하며, 컨트롤러는 각 요소들의 연결관계를 설정하고 뷰와 데이터의 연결 등을 관리한다.<br/>
-   + 스프링 MVC에선 디스패쳐 서블릿과 핸들링맵핑을 이용해 클라이언트의 요청에 맞는 컨트롤러를 찾아 서비스를 이용한다.<br/>
- + JSP와 타임리프<br/>
-   + JSP는 Java를 이용한 서버 사이드 스크립트 언어이다. HTML과 스크립트 영역을 포함하며, 실행 시 javax.servlet.http.HttpServlet 클래스를<br/> 상속받은
+   + Java SE 7부터 작성된 모든 JDK는 OpenJDK 기반의 레퍼런스 소스 코드를 사용하므로 아무 문제없이 사용이 가능하다!
+ + MVC Model이란?
+   + Model View Controller로 구성하는 패턴을 말하며, 뷰와 비즈니스 로직을 분리하여 서로에게 영향없이 데이터와 뷰를 변경할 수 있게 만든것이다.
+   + 모델은 데이터를 처리하는 부분을 가리키고 뷰는 화면에 표시되는 부분을 말하며, 컨트롤러는 각 요소들의 연결관계를 설정하고 뷰와 데이터의 연결 등을 관리한다.
+   + 스프링 MVC에선 디스패쳐 서블릿과 핸들링맵핑을 이용해 클라이언트의 요청에 맞는 컨트롤러를 찾아 서비스를 이용한다.
+ + JSP와 타임리프
+   + JSP는 Java를 이용한 서버 사이드 스크립트 언어이다. HTML과 스크립트 영역을 포함하며, 실행 시 javax.servlet.http.HttpServlet 클래스를 상속받은
    + java 소스코드로 변환한 다음 컴파일된다. 해당 파일을 변환하고 실행시켜 주는 프로그램은 서블릿 컨테이너라고 부른다.<br/> 대표적으로 Tomcat이 있다.
-   + 타임리프는 지원이 거의 중단되고 있는 JSP의 대안으로 떠오르는 뷰탬플릿 엔진이다. XML/XHTML/HTML5/JS등을 활용할 수 있으며, MVC 패턴에 맞게 설계되었다. <br/>
- + Git command 학습<br/>
+   + 타임리프는 지원이 거의 중단되고 있는 JSP의 대안으로 떠오르는 뷰탬플릿 엔진이다. XML/XHTML/HTML5/JS등을 활용할 수 있으며, MVC 패턴에 맞게 설계되었다. 
+ + Git command 학습
    + [link-thebook](https://thebook.io/080212/xa/)<br/>
    + [link-tistory](https://goddaehee.tistory.com/category/6.%20%EA%B0%9C%EB%B0%9C%EB%8F%84%EA%B5%AC/6_3%20GIT)
-   + <br/>
- + readme Markdown 학습<br/>
-   + [link-heropy](https://heropy.blog/2017/09/30/markdown/)<br/>
+ + readme Markdown 학습
+   + [link-heropy](https://heropy.blog/2017/09/30/markdown/)
    + [link-GitHub](https://gist.github.com/ihoneymon/652be052a0727ad59601)
-   + <br/><br/>
+<br/>
       
 ## 2주차 Inteface Guide Document 작성
 
   <br/>공공 데이터 API 문서와 카카오 API 문서를 참고해서 이번 프로젝트의 API 문서 초안 만들기.<br/>
-
-  + API란 무엇일까?<br/>
+  
+  + API란 무엇일까?
+    + API : Application Programming Interface는 응용 프로그램에서 사용할 수 있도록 운영 체제나 프로그래밍 언어가 제공하는 기능을 제어할 수 있게 만든 인터페이스를 뜻한다.
+    + private API : Internal API로써 자체 제품, 서비스를 개선하기 위하여 내부적으로 발행하는(구현하는) API. 제 3자에게 노출되지 않는다.
+    + public API : 개방형 API로써 모두에게 공개되는 API를 말한다. (KAKAO MAP API..)
+    + partner API : 해당 기업이 데이터 공유에 동의하는 특정한 기업, 사람들에게만 제공하는 API. (회사간 SW 통합, 비즈니스 관계에서 사용)
+    <br/>
+  + REST 아키텍처는 무엇일까? (학습 중)
+    + 관련 용어 학습하기 (Client-Server, Stateless, Cache, Uniform Interface, Layered System...)
+    + self-descrive message : 메시지 자체만으로 스스로(응답 정보)를 설명할 수 있어야 한다.
+    + HATEOAS : 애플리케이션의 상태는 하이퍼링크를 통해 전이되어야 한다. (self, next, prev, query...Links 등)
+    <br/>
   + REST API 작성 규칙
+    + 행위(Method)는 URL에 명시, 포함해서는 안된다.
+    + _ 대신 - 를 사용한다. (Dash도 최소한으로 사용해야 한다. 정확한 의미 표현, 단어(Resource)의 결합 등..)
+    + 소문자를 사용한다.
+    + 함수처럼 Control Resource 에만 예외적으로 동사를 허용한다.
 
 ## 3주차 RESTful Architecture가 적용된 간단한 HTTP API 만들기
   
   <br/>API 가이드와 샘플 데이터를 사용하여 간단한 API 만들기<br/>
   
-  + HTTP : Hypertext Transfer Protocol 은 HTML과 같은 문서를 전송하기 위한 Application layer Protocol이다.<br/>
-    + Web Browser(Client) - Web Server Model 의 요청 응답 구조로 되어 있으며, 요청을 처리한 후<br/>
-    + 정보나 상태를 가지지 않는 Stateless Protocol 이기도 하다.<br/>
-    + Stateless Protocol은 각 요청을 독립적인 트랜잭션으로 취급하며, 독립적인 쌍의 요청과 응답을 가진다.<br/>
-    + 지속적으로 클라이언트와 통신을 연결하고 있지 않기때문에 상대적으로 많은 리소스를 아낄 수 있다.<br/>
-    + 많은 요청과 응답 가운데 진행되는 연결 / 해제에 대한 오버헤드가 존재하므로 요청이 많은 서비스에서는<br/>
-    + 따로 해결책을 준비하여야 한다.
-    + 서버에서 상태를 기억할 수 있도록 쿠키, 세션, 토큰을 통하여 정보를 저장하고 서버가 클라이언트를 식별할 수<br/>
-    + 있게끔 처리할 수 있다. 
-    + 추가적으로 HTTP는 데이터를 전송할 때 평문으로 전송하기에 보안(탈취, 변조 등)에 취약하다. <br/>
-  + HTTPS : HTTP over Secure Socket Layer(SSL) 를 말하며, 독립적인 계층을 가진 SSL을 이용한 HTTP 통신 방식을 의미한다.<br/>
-    + SSL이 적용되어 있을 경우 응용 계층의 프로토콜들은 외부로 보내는 데이터를 일차적으로 TCP가 아닌 SSL에 보내게되고, <br/>
-    + SSL에서 받은 데이터를 암호화하여 TCP로 전달해서 외부 인터넷으로 전달하게 된다. 응답은 역순(APP은 SSL을 TCP로 인식한다.)<br/>
-  + HTTP 요청 구조<br/>
-    + Start Line (HTTP Method : GET, POST.., Request Target : URL.., HTTP Version : 1.0, 1.1, 2.0..)<br/>
-    + Header : HTTP 요청 그 자체에 대한 정보를 가지고 있는 구조이다.(Host, Content-Type, Accept, Connection..)<br/>
-    + Body   : HTTP 요청이 전송하는 데이터를 담는 부분이다, 전송하는 데이터가 없다면 Body 부분은 비어있다.<br/>
-  + HTTP Status Code 학습하기<br/>
-    + 10X : 정보를 확인하는 CODE<br/>
-    + 20X : 통신이 성공했다고 알려주는 CODE<br/>
-    + 30X : HTTP (URL) Redirect 요청 CODE<br/>
-    + 40X : 클라이언트 오류<br/>
-    + 50X : 서버의 오류<br/>
-  + REST 아키텍처는 무엇일까?<br/>
-    + 관련 용어 학습하기 (Client-Server, Stateless, Cache, Uniform Interface, Layered System...)<br/>
-    + self-descrive message 란?<br/>
-    + HATEOAS 란?<br/>
-
-  
-  + 궁금한 것 <br/>
-    + JSON란 무엇일까?<br/>
-    + 브라우저에 URL을 입력했을 경우 서버에서 응답하는 과정 설명하기<br/>
-    + Spring의 Restcontroller 어노테이션을 이용해서 API 작성해보기<br/>
-    + 해당 API의 TEST CASE 작성하기<br/>
-    + JPA 학습 해보기<br/>
-
+  + HTTP : Hypertext Transfer Protocol 은 HTML과 같은 문서를 전송하기 위한 Application layer Protocol이다.
+    + Web Browser(Client) - Web Server Model 의 요청 응답 구조로 되어 있으며, 요청을 처리한 후
+    + 정보나 상태를 가지지 않는 Stateless Protocol 이기도 하다.
+    + Stateless Protocol은 각 요청을 독립적인 트랜잭션으로 취급하며, 독립적인 쌍의 요청과 응답을 가진다.
+    + 지속적으로 클라이언트와 통신을 연결하고 있지 않기때문에 상대적으로 많은 리소스를 아낄 수 있다.
+    + 많은 요청과 응답 가운데 진행되는 연결 / 해제에 대한 오버헤드가 존재하므로 요청이 많은 서비스에서는 따로 해결책을 준비하여야 한다.
+    + 서버에서 상태를 기억할 수 있도록 쿠키, 세션, 토큰을 통하여 정보를 저장하고 서버가 클라이언트를 식별할 수 있게끔 처리할 수 있다. 
+    + 추가적으로 HTTP는 데이터를 전송할 때 평문으로 전송하기에 보안(탈취, 변조 등)에 취약하다. 
+    <br/>
+  + HTTPS : HTTP over Secure Socket Layer(SSL) 를 말하며, 독립적인 계층을 가진 SSL을 이용한 HTTP 통신 방식을 의미한다.
+    + SSL이 적용되어 있을 경우 응용 계층의 프로토콜들은 외부로 보내는 데이터를 일차적으로 TCP가 아닌 SSL에 보내게되고, 
+    + SSL에서 받은 데이터를 암호화하여 TCP로 전달해서 외부 인터넷으로 전달하게 된다. 응답은 역순(APP은 SSL을 TCP로 인식한다.)
+    + 기존에 HTTP 프로토콜의 평문 전송으로 인한 보안 취약점을 보완하는 프로토콜이다.
+    + HTTPS Protocol 통신 절차 (Client -> Server)
+    + brower에서 가지고 있는 인증기관 리스트를 확인하고 인증기관에 통신하려는 웹 서버의 인증서를 요청하여 인증서와 암호화키를 받는다.
+    + 해당 암호화 키를 가지고 Application -> SSL(암호화 키를 통한 데이터 암호화) -> TCP 순으로 진행한다.
+    + 요청을 보낸 웹 서버에서 최초로 인증서를 발급하였을 때 암호화키를 가지고 해당 데이터를 복호화한다.
+    <br/>
+  + HTTP 요청 구조
+    + Start Line (HTTP Method : GET, POST.., Request Target : URL.., HTTP Version : 1.0, 1.1, 2.0..)
+    + Header : HTTP 요청 그 자체에 대한 정보를 가지고 있는 구조이다. key : value 형식으로 이루어져 있다. (Host, Content-Type, Accept, Connection..)
+    + Body   : HTTP 요청이 전송하는 데이터를 담는 부분이다, 전송하는 데이터가 없다면 Body 부분은 비어있다.
+    <br/>
+  + HTTP Status Code (응답 코드) 학습하기
+    + 10X의 의미 : 정보를 확인하는 CODE
+    + 100 Continue : 임시적인 응답으로 Client가 계속해서 응답을 요청하거나 완료한 경우 무시해도 되는 것을 알려주는 code.
+    + 101 Switching Protocol : Client의 Upgrade 요청 헤더에 따른 응답. 서버에서 프로토콜을 변경할 것임을 알려주는 code.
+    + 102 Processing : 서버가 요청에 대해서 수신하고 처리 중이지만, 아직 응답할 수 없다는 것을 알려주는 code.
+    + 103 Early Hints : 주로 Link 헤더와 함께 사용되며, 응답을 준비하는 동안 Client가 사전 로딩을 시작하도록 하는 Code.
+    <br/>
+    + 20X의 의미 : 통신이 성공했다고 알려주는 CODE
+    + 200 OK : 메서드에 따라 의미가 변경되는 code로써 요청이 성공적으로 진행되었다는 것을 알려주는 code.
+    + 201 Created : 요청이 성공적이였으며, 그에 따른 새로운 리소스가 생성되었음을 알려주는 code.
+    + 202 Accepted : 요청을 수신했지만, 해당 요청에 따른 행동을 할 수 없음을 알려주는 code. (비동기, 배치와 관련된 code이다.)
+    + 204 No Content : 요청은 성공하였으나, 보내줄 컨텐츠는 없다는 것을 알려주는 code.
+    <br/>
+    + 30X의 의미 : HTTP (URL) Redirect 요청 CODE
+    + 300 Multiple Choice : 요청에 대해서 하나 이상의 응답이 가능한 경우를 알려주는 code. (client는 하나의 요청을 반드시 선택해야 함. )
+    + 301 Moved Permanently : 요청한 리소스의 URI가 변경되었음을 알려주는 code.
+    + 302 Found : 요청한 리소스의 URI가 일시적으로 변경되었음을 의미하는 code.
+    + 303 See Other : client가 요청한 리소스를 다른 URI에 GET 요청을 해야 얻어낼 수 있음을 알려주는 code. (서버가 직접 응답하는 경우이다.)
+    + 304 Not Modified : cache를 목적으로 사용되는 code로써 client에게 응답이 수정되지 않았다는 것을 알려주고, 응답의 캐시된 버전을 사용하게 하는 code.
+    <br/>
+    + 40X의 의미 : 클라이언트의 요청에 따른 오류
+    + 400 Bad Request : 잘못된 문법에 인하여서 서버가 요청을 이해할 수 없음을 의미하는 code.
+    + 401 Unauthorized : 해당 Client에게 인증을 요청하는 Code. (Login..)
+    + 403 Forbidden : 해당 Content에 접근할 권리를 가지기 않고 있다는 것을 알려주는 Code. (401과 다른점은 서버는 해당 Client가 누구인지 알고 있다는 점)
+    + 404 Not Found : 서버에서 리소스를 찾을 수 없거나, Client에서 알 수 없는 URL일 경우 혹은 리소스를 숨기기 위하여 사용되기도 하는 code.
+    + 405 Method Not Allowed : 해당 요청에따른 메소드가 있음을 서버는 알고 있으나, 제거되었거나 혹은 사용할 수 없음을 알려주는 code.
+    + 409 Conflict : 해당 요청이 서버의 상태와 충돌될 경우 응답되는 code.
+    <br/>
+    + 50X의 의미 : 서버의 오류
+    + 500 Internal Server Error : 서버가 해당 요청에 따른 처리방법을 알 수 없음을 알려주는 code.
+    + 502 Bad Gateway : 서버가 요청을 처리하는데 필요한 응답을 얻기 위해 작업하는 동안 잘못된 응답을 수신한 것을 알려주는 code
+    + 503 Service Unavailable : 서버가 요청을 처리할 준비가 되어있지 않음을 알려주는 code. (작동 중단, 과부화 등)
+    <br/>
+  + 궁금한 것 
+    + JSON란 무엇일까? (학습 중)
+    + 브라우저에 URL을 입력했을 경우 서버에서 응답하는 과정 설명하기 (학습 중)
+    + 해당 API의 TEST CASE 작성하기 (완료)
+    + JPA 학습 해보기 (학습 중)
+    <br/>
 ## 4주차 API 구축을 위한 SQL 작성하기
   
   <br/>
