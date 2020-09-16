@@ -5,6 +5,7 @@ public class UserDto {
     private String userID;
     private String hr_Organ;
     private String username;
+    private String password;
 
     public String getUserID() {
         return userID;
@@ -16,6 +17,10 @@ public class UserDto {
 
     public String getUsername() {
         return username;
+    }
+
+    public String getPassword() {
+        return password;
     }
 
     public void setUserID(String userID) {
@@ -30,4 +35,7 @@ public class UserDto {
         this.hr_Organ = hr_Organ;
     }
 
+    public void setPassword(String password) {
+        this.password = password;
+    }
 }
