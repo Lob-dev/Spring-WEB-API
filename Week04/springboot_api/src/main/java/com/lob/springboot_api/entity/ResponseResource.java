@@ -7,7 +7,10 @@ public class ResponseResource extends RepresentationModel {
     private String title;
     private String description;
     private String year;
+    private String month;
+    private String days;
     private String Total_Count;
+
 
     public String getTitle() {
         return title;
@@ -25,6 +28,14 @@ public class ResponseResource extends RepresentationModel {
         return Total_Count;
     }
 
+    public String getDays() {
+        return days;
+    }
+
+    public String getMonth() {
+        return month;
+    }
+
     public void setTitle(String title) {
         this.title = title;
     }
@@ -39,5 +50,13 @@ public class ResponseResource extends RepresentationModel {
 
     public void setTotal_Count(String total_Count) {
         Total_Count = total_Count;
+    }
+
+    public void setDays(String days) {
+        this.days = days;
+    }
+
+    public void setMonth(String month) {
+        this.month = month;
     }
 }

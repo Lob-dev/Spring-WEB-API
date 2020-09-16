@@ -1,13 +1,13 @@
 package com.lob.springboot_api.Repository;
 
-import com.lob.springboot_api.entity.RequestInfo;
-import com.lob.springboot_api.entity.UserDto;
+import com.lob.springboot_api.dto.UserDto;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
 import javax.sql.DataSource;
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public class UserRepository {
@@ -29,14 +29,21 @@ public class UserRepository {
     }
 
     public UserDto save(UserDto userDto) {
-        String sql = "Insert into user( userID, HR_ORGAN, username) values ( ?, ?, ?)";
-        jdbcTemplate.update(sql , userDto.getUserID(), userDto.getHr_Organ(), userDto.getUsername());
+        String sql = "Insert into user( userID, HR_ORGAN, username, password) values ( ?, ?, ?, ?)";
+        jdbcTemplate.update(sql , userDto.getUserID(), userDto.getHr_Organ(), userDto.getUsername(), userDto.getPassword());
         return userDto;
     }
 
 
     public List<UserDto> findByUser(String userID) {
-        List<UserDto> res = jdbcTemplate.query("SELECT * FROM user where userID = ?", rowMapper(), userID);
+        String sql = "SELECT * FROM user WHERE userID = ?";
+        List<UserDto> res = jdbcTemplate.query(sql, rowMapper(), userID);
         return res;
+    }
+
+    public Optional<UserDto> findByUserAndPassword(String userID, String password) {
+        String sql = "SELECT * FROM user WHERE userID = ? And Password = ?";
+        List<UserDto> res = jdbcTemplate.query(sql, rowMapper(), userID, password);
+        return res.stream().findAny();
     }
 }

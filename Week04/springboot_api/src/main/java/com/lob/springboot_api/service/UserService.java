@@ -1,11 +1,13 @@
 package com.lob.springboot_api.service;
 
 import com.lob.springboot_api.Repository.UserRepository;
-import com.lob.springboot_api.entity.UserDto;
+import com.lob.springboot_api.dto.UserDto;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
+@Transactional
 @Service
 public class UserService {
 
@@ -15,8 +17,13 @@ public class UserService {
         this.userRepository = userRepository;
     }
 
-    public List<UserDto> findUser(String userID) {
+    public List<UserDto> findByUser(String userID) {
          return userRepository.findByUser(userID);
+    }
+
+    public void findByUserAndPassword(String userID, String password) {
+        userRepository.findByUserAndPassword(userID, password)
+                .orElseThrow(RuntimeException::new);
     }
 
     public String join(UserDto userDto) {
