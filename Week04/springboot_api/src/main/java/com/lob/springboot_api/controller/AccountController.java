@@ -5,8 +5,10 @@ import com.lob.springboot_api.entity.CreateForm;
 import com.lob.springboot_api.dto.UserDto;
 import com.lob.springboot_api.service.UserService;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpSession;
 
@@ -40,7 +42,6 @@ public class AccountController {
         if(res.equals("이미 있는 유저입니다.")){
             return res;
         }
-
         return "redirect:/";
     }
 
@@ -56,9 +57,16 @@ public class AccountController {
         userDto.setPassword(createform.getPassword());
         userDto.setHr_Organ(createform.getOrgan());
         userDto.setUsername(createform.getName());
-        userService.findByUserAndPassword(createform.getId(), createform.getPassword());
-        httpSession.setAttribute("user",userDto);
-        System.out.println(httpSession.getAttribute("user"));
+        boolean res = userService.findByUserAndPassword(createform.getId(), createform.getPassword());
+        if(res){ httpSession.setAttribute("user",userDto); }
         return "redirect:/";
     }
+
+    @GetMapping("/logout")
+    public String userLogout(HttpSession httpSession) {
+        httpSession.invalidate();
+        return "redirect:/";
+    }
+
+
 }

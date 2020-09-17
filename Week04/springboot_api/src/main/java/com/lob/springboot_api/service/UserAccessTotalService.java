@@ -10,11 +10,11 @@ import java.util.List;
 
 @Transactional
 @Service
-public class RequestService {
+public class UserAccessTotalService {
 
     private final RequestApiRepository requestApiRepository;
 
-    public RequestService(RequestApiRepository requestApiRepository) {
+    public UserAccessTotalService(RequestApiRepository requestApiRepository) {
         this.requestApiRepository = requestApiRepository;
     }
 

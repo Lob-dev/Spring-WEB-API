@@ -1,7 +1,7 @@
 package com.lob.springboot_api.dto;
 
 
-public class RequestInfo {
+public class RequestInfoDto {
 
     private Long requestID;
     private String requestCode;

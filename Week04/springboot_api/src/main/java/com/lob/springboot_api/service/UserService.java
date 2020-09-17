@@ -21,9 +21,9 @@ public class UserService {
          return userRepository.findByUser(userID);
     }
 
-    public void findByUserAndPassword(String userID, String password) {
-        userRepository.findByUserAndPassword(userID, password)
-                .orElseThrow(RuntimeException::new);
+    public boolean findByUserAndPassword(String userID, String password) {
+        boolean res = userRepository.findByUserAndPassword(userID, password);
+        return res;
     }
 
     public String join(UserDto userDto) {

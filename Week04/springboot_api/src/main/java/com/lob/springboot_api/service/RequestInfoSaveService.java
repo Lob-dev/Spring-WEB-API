@@ -1,7 +1,7 @@
 package com.lob.springboot_api.service;
 
 import com.lob.springboot_api.Repository.RequestApiRepository;
-import com.lob.springboot_api.dto.RequestInfo;
+import com.lob.springboot_api.dto.RequestInfoDto;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -18,7 +18,7 @@ public class RequestInfoSaveService {
         this.requestApiRepository = requestApiRepository;
     }
 
-    public RequestInfo requestForWriteBoard(String userID, String wb) {
+    public RequestInfoDto requestForWriteBoard(String userID, String wb) {
         //날짜 입력
         Date today = new Date();
         SimpleDateFormat createDateFormat = new SimpleDateFormat("yyMMddHHmm");

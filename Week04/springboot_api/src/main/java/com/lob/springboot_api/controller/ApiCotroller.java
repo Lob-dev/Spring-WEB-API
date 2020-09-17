@@ -1,12 +1,12 @@
 package com.lob.springboot_api.controller;
 
 import com.lob.springboot_api.dto.DaysTotalDto;
-import com.lob.springboot_api.dto.RequestInfo;
+import com.lob.springboot_api.dto.RequestInfoDto;
 import com.lob.springboot_api.entity.ResponseResource;
 import com.lob.springboot_api.dto.UserDto;
 
 import com.lob.springboot_api.service.RequestInfoSaveService;
-import com.lob.springboot_api.service.RequestService;
+import com.lob.springboot_api.service.UserAccessTotalService;
 import com.lob.springboot_api.service.UserService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,9 +19,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.math.BigDecimal;
 import java.math.MathContext;
-import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Iterator;
 import java.util.List;
 
 import static org.springframework.hateoas.server.mvc.ControllerLinkBuilder.linkTo;
@@ -34,15 +32,13 @@ public class ApiCotroller {
     // requestID Generate value +1 / userID userID / requestCode = requestcode.requestCode / createDate = dateTime
     // requestService.requestForWriteBoard(UserDTO.getUserID,"WB") Logic을 진행할 때 DATE 생성 (datetime format YYMMDDhhmm)
 
-    private final RequestService requestService;
+    private final UserAccessTotalService userAccessTotalService;
     private final RequestInfoSaveService requestInfoSaveService;
-    private final UserService userService;
 
 
-    public ApiCotroller(RequestService requestService, RequestInfoSaveService requestInfoSaveService, UserService userService) {
-        this.requestService = requestService;
+    public ApiCotroller(UserAccessTotalService userAccessTotalService, RequestInfoSaveService requestInfoSaveService, UserService userService) {
+        this.userAccessTotalService = userAccessTotalService;
         this.requestInfoSaveService = requestInfoSaveService;
-        this.userService = userService;
     }
 
     /**
@@ -69,7 +65,7 @@ public class ApiCotroller {
         requestInfoSaveService.requestForWriteBoard(user.getUserID(),"WB");
 
         //DB 검색 결과
-        List<RequestInfo> res = requestService.findByYear(year.substring(2, 4));
+        List<RequestInfoDto> res = userAccessTotalService.findByYear(year.substring(2, 4));
 
         //Event Resource setter
         ResponseResource responseResource = new ResponseResource();
@@ -112,7 +108,7 @@ public class ApiCotroller {
 
         requestInfoSaveService.requestForWriteBoard(id,"WB");
 
-        List<RequestInfo> res = requestService.findByMonths(year.substring(2, 4), month);
+        List<RequestInfoDto> res = userAccessTotalService.findByMonths(year.substring(2, 4), month);
 
         ResponseResource responseResource = new ResponseResource();
         responseResource.setTitle("2020년 접속자 통계");
@@ -163,7 +159,7 @@ public class ApiCotroller {
 
         requestInfoSaveService.requestForWriteBoard(id,"WB");
 
-        List<RequestInfo> res = requestService.findByDays(year.substring(2, 4), month, day);
+        List<RequestInfoDto> res = userAccessTotalService.findByDays(year.substring(2, 4), month, day);
 
         ResponseResource responseResource = new ResponseResource();
         responseResource.setTitle("2020년 접속자 통계");
@@ -197,7 +193,7 @@ public class ApiCotroller {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Value for User dosn't Login.");
         }
 
-        List<DaysTotalDto> res = requestService.findByDaysAverage();
+        List<DaysTotalDto> res = userAccessTotalService.findByDaysAverage();
         long dateGroup = res.size();
         long requestCount = 0;
 
@@ -239,7 +235,7 @@ public class ApiCotroller {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Value for User dosn't Login.");
         }
 
-        List<DaysTotalDto> res = requestService.findByNotholidayAverage();
+        List<DaysTotalDto> res = userAccessTotalService.findByNotholidayAverage();
         long dateGroup = res.size();
         long requestCount = 0;
 
@@ -283,7 +279,7 @@ public class ApiCotroller {
         }
         organ = organ.replace("#20", " ");
         System.out.println(organ);
-        List<RequestInfo> res = requestService.findByMonthAndOrgan(year.substring(2, 4), month, organ);
+        List<RequestInfoDto> res = userAccessTotalService.findByMonthAndOrgan(year.substring(2, 4), month, organ);
 
         ResponseResource responseResource = new ResponseResource();
         responseResource.setTitle("2020년 접속자 통계");
@@ -320,7 +316,7 @@ public class ApiCotroller {
 
         organ = organ.replace("#20", " ");
         System.out.println(organ);
-        List<RequestInfo> res = requestService.findByOrgan(organ);
+        List<RequestInfoDto> res = userAccessTotalService.findByOrgan(organ);
 
         ResponseResource responseResource = new ResponseResource();
         responseResource.setTitle("2020년 접속자 통계");

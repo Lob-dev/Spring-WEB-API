@@ -41,9 +41,9 @@ public class UserRepository {
         return res;
     }
 
-    public Optional<UserDto> findByUserAndPassword(String userID, String password) {
+    public boolean findByUserAndPassword(String userID, String password) {
         String sql = "SELECT * FROM user WHERE userID = ? And Password = ?";
-        List<UserDto> res = jdbcTemplate.query(sql, rowMapper(), userID, password);
-        return res.stream().findAny();
+        List<UserDto> res = jdbcTemplate.query(sql, rowMapper() ,userID, password);
+        return !res.isEmpty(); // res 가 비어있다면 false 반환 (!true)
     }
 }
