@@ -1,6 +1,6 @@
 package com.lob.springboot_api.service;
 
-import com.lob.springboot_api.Repository.UserRepository;
+import com.lob.springboot_api.Repository.UserAccountRepository;
 import com.lob.springboot_api.dto.UserDto;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -11,26 +11,26 @@ import java.util.List;
 @Service
 public class UserService {
 
-    private final UserRepository userRepository;
+    private final UserAccountRepository userAccountRepository;
 
-    public UserService(UserRepository userRepository) {
-        this.userRepository = userRepository;
+    public UserService(UserAccountRepository userAccountRepository) {
+        this.userAccountRepository = userAccountRepository;
     }
 
     public List<UserDto> findByUser(String userID) {
-         return userRepository.findByUser(userID);
+         return userAccountRepository.findByUser(userID);
     }
 
     public boolean findByUserAndPassword(String userID, String password) {
-        boolean res = userRepository.findByUserAndPassword(userID, password);
+        boolean res = userAccountRepository.findByUserAndPassword(userID, password);
         return res;
     }
 
     public String join(UserDto userDto) {
 
-        List<UserDto> user = userRepository.findByUser(userDto.getUserID());
+        List<UserDto> user = userAccountRepository.findByUser(userDto.getUserID());
         if(user.isEmpty()){
-            userRepository.save(userDto);
+            userAccountRepository.save(userDto);
             return userDto.getUserID();
         }
 
