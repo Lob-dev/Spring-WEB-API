@@ -3,12 +3,9 @@ package com.lob.springboot_api.service;
 import com.lob.springboot_api.Repository.RequestApiRepository;
 import com.lob.springboot_api.dto.RequestInfoDto;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-@Transactional
 @Service
 public class RequestInfoSaveService {
 

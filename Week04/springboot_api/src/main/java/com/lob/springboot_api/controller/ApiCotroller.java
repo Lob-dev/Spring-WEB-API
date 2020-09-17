@@ -2,12 +2,12 @@ package com.lob.springboot_api.controller;
 
 import com.lob.springboot_api.dto.DaysTotalDto;
 import com.lob.springboot_api.dto.RequestInfoDto;
-import com.lob.springboot_api.entity.ResponseResource;
+import com.lob.springboot_api.resource.ResponseResource;
 import com.lob.springboot_api.dto.UserDto;
 
 import com.lob.springboot_api.service.RequestInfoSaveService;
 import com.lob.springboot_api.service.UserAccessTotalService;
-import com.lob.springboot_api.service.UserService;
+import com.lob.springboot_api.service.UserAccountService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -36,7 +36,7 @@ public class ApiCotroller {
     private final RequestInfoSaveService requestInfoSaveService;
 
 
-    public ApiCotroller(UserAccessTotalService userAccessTotalService, RequestInfoSaveService requestInfoSaveService, UserService userService) {
+    public ApiCotroller(UserAccessTotalService userAccessTotalService, RequestInfoSaveService requestInfoSaveService, UserAccountService userAccountService) {
         this.userAccessTotalService = userAccessTotalService;
         this.requestInfoSaveService = requestInfoSaveService;
     }

@@ -1,4 +1,4 @@
-package com.lob.springboot_api.entity;
+package com.lob.springboot_api.dto;
 
 import java.io.Serializable;
 

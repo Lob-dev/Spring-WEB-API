@@ -1,7 +1,7 @@
 package com.lob.springboot_api.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.lob.springboot_api.entity.ResponseResource;
+import com.lob.springboot_api.resource.ResponseResource;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

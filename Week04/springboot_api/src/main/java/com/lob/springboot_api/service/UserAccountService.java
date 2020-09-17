@@ -9,11 +9,11 @@ import java.util.List;
 
 @Transactional
 @Service
-public class UserService {
+public class UserAccountService {
 
     private final UserAccountRepository userAccountRepository;
 
-    public UserService(UserAccountRepository userAccountRepository) {
+    public UserAccountService(UserAccountRepository userAccountRepository) {
         this.userAccountRepository = userAccountRepository;
     }
 
