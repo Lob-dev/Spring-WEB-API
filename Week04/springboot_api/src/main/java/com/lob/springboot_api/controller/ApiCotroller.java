@@ -74,8 +74,10 @@ public class ApiCotroller {
         responseResource.setDescription("2020년 기준 접속자 통계입니다.");
         responseResource.setTotal_Count(String.valueOf(res.size()));
         responseResource.setYear(year);
+        responseResource.setMonth("ALL");
+        responseResource.setDays("ALL");
         responseResource.add(linkTo(ApiCotroller.class).slash(year).withSelfRel());
-        responseResource.add(linkTo(ApiCotroller.class).withRel("prev-link"));
+        responseResource.add(linkTo(HomeController.class).withRel("prev-link"));
 
         //Event Resource send
         return ResponseEntity.status(HttpStatus.OK).body(responseResource);
@@ -117,8 +119,9 @@ public class ApiCotroller {
         responseResource.setTotal_Count(String.valueOf(res.size()));
         responseResource.setYear(year);
         responseResource.setMonth(month);
+        responseResource.setDays("ALL");
         responseResource.add(linkTo(ApiCotroller.class).slash(id).slash(year).slash(month).withSelfRel());
-        responseResource.add(linkTo(ApiCotroller.class).withRel("prev-link"));
+        responseResource.add(linkTo(HomeController.class).withRel("prev-link"));
 
         return ResponseEntity.status(HttpStatus.OK).body(responseResource);
     }

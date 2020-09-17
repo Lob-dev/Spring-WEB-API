@@ -1,6 +1,6 @@
 package com.lob.springboot_api.dto;
 
-public class ExcelResponseDto {
+public class ExcelFileDto {
 
     private Long requestID;
     private String requestCode;

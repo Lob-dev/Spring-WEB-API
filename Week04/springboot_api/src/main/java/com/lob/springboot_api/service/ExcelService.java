@@ -1,7 +1,7 @@
 package com.lob.springboot_api.service;
 
 import com.lob.springboot_api.Repository.RequestApiRepository;
-import com.lob.springboot_api.dto.ExcelResponseDto;
+import com.lob.springboot_api.dto.ExcelFileDto;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.streaming.SXSSFSheet;
 import org.apache.poi.xssf.streaming.SXSSFWorkbook;
@@ -21,11 +21,11 @@ public class ExcelService {
         this.requestApiRepository = requestApiRepository;
     }
 
-    public SXSSFWorkbook MakeExcelFileDownload(List<ExcelResponseDto> res) {
+    public SXSSFWorkbook MakeExcelFileDownload(List<ExcelFileDto> res) {
         return this.makeExcelWorkbook(res);
     }
 
-    public SXSSFWorkbook makeExcelWorkbook(List<ExcelResponseDto> list){
+    public SXSSFWorkbook makeExcelWorkbook(List<ExcelFileDto> list){
         SXSSFWorkbook workbook = new SXSSFWorkbook();
         SXSSFSheet sheet = workbook.createSheet("API 접속자 통계");
 
@@ -70,7 +70,7 @@ public class ExcelService {
         Row bodyRow;
         Cell bodyCell = null;
         for(int i=0; i<list.size(); i++){
-            ExcelResponseDto re = list.get(i);
+            ExcelFileDto re = list.get(i);
 
             bodyRow = sheet.createRow(i+1);
             bodyCell = bodyRow.createCell(0);
@@ -102,8 +102,8 @@ public class ExcelService {
         return workbook;
     }
 
-    public List<ExcelResponseDto> findAllData() {
-        List<ExcelResponseDto> res = requestApiRepository.findAll();
+    public List<ExcelFileDto> findAllData() {
+        List<ExcelFileDto> res = requestApiRepository.findAll();
         return res;
     }
 }

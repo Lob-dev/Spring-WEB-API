@@ -2,7 +2,7 @@ package com.lob.springboot_api.Repository;
 
 
 import com.lob.springboot_api.dto.DaysTotalDto;
-import com.lob.springboot_api.dto.ExcelResponseDto;
+import com.lob.springboot_api.dto.ExcelFileDto;
 import com.lob.springboot_api.dto.RequestInfoDto;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
@@ -38,17 +38,17 @@ public class RequestApiRepository {
         };
     }
 
-    private RowMapper<ExcelResponseDto> excelRowMapper() {
+    private RowMapper<ExcelFileDto> excelRowMapper() {
         return (rs, rowNum) -> {
-            ExcelResponseDto excelResponseDto = new ExcelResponseDto();
-            excelResponseDto.setRequestID(rs.getLong("requestID"));
-            excelResponseDto.setRequestCode(rs.getString("requestCode"));
-            excelResponseDto.setUserID(rs.getString("userID"));
-            excelResponseDto.setUsername(rs.getString("USERNAME"));
-            excelResponseDto.setHr_Organ(rs.getString("HR_ORGAN"));
-            excelResponseDto.setPassword(rs.getString("PASSWORD"));
-            excelResponseDto.setCreateDate(rs.getString("createDate"));
-            return excelResponseDto;
+            ExcelFileDto excelFileDto = new ExcelFileDto();
+            excelFileDto.setRequestID(rs.getLong("requestID"));
+            excelFileDto.setRequestCode(rs.getString("requestCode"));
+            excelFileDto.setUserID(rs.getString("userID"));
+            excelFileDto.setUsername(rs.getString("USERNAME"));
+            excelFileDto.setHr_Organ(rs.getString("HR_ORGAN"));
+            excelFileDto.setPassword(rs.getString("PASSWORD"));
+            excelFileDto.setCreateDate(rs.getString("createDate"));
+            return excelFileDto;
         };
     }
 
@@ -104,11 +104,11 @@ public class RequestApiRepository {
         return res;
     }
 
-    public List<ExcelResponseDto> findAll() {
+    public List<ExcelFileDto> findAll() {
         String sql = "SELECT requestinfo.requestID, requestinfo.requestCode, requestinfo.userID, " +
                 "requestinfo.createDate, user.HR_ORGAN, user.USERNAME, user.PASSWORD FROM requestinfo " +
                 "INNER JOIN user where requestinfo.userID = user.userID order by requestID ";
-        List<ExcelResponseDto> res = jdbcTemplate.query(sql, excelRowMapper());
+        List<ExcelFileDto> res = jdbcTemplate.query(sql, excelRowMapper());
         return res;
     }
 }
