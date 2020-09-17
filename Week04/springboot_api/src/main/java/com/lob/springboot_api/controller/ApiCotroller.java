@@ -19,6 +19,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.math.BigDecimal;
 import java.math.MathContext;
+import java.time.Year;
 import java.util.Calendar;
 import java.util.List;
 
@@ -111,8 +112,8 @@ public class ApiCotroller {
         List<RequestInfoDto> res = userAccessTotalService.findByMonths(year.substring(2, 4), month);
 
         ResponseResource responseResource = new ResponseResource();
-        responseResource.setTitle("2020년 접속자 통계");
-        responseResource.setDescription("2020년 "+month.replace("0","")+"월 기준 접속자 통계입니다.");
+        responseResource.setTitle(year+"년 접속 요청 통계");
+        responseResource.setDescription(year+"년 "+month.replace("0","")+"월 기준 접속 요청 통계입니다.");
         responseResource.setTotal_Count(String.valueOf(res.size()));
         responseResource.setYear(year);
         responseResource.setMonth(month);
@@ -162,14 +163,14 @@ public class ApiCotroller {
         List<RequestInfoDto> res = userAccessTotalService.findByDays(year.substring(2, 4), month, day);
 
         ResponseResource responseResource = new ResponseResource();
-        responseResource.setTitle("2020년 접속자 통계");
-        responseResource.setDescription("2020년 기준 접속자 통계입니다.");
+        responseResource.setTitle(year+"년 "+month+"월 "+day+"일 기준 요청 통계");
+        responseResource.setDescription(year+"년 "+month.replace("0","")+"월 "+day+"일 기준 접속 요청 통계입니다.");
         responseResource.setTotal_Count(String.valueOf(res.size()));
         responseResource.setYear(year);
         responseResource.setMonth(month);
         responseResource.setDays(day);
         responseResource.add(linkTo(ApiCotroller.class).slash(year).slash(month).slash(day).withSelfRel());
-        responseResource.add(linkTo(ApiCotroller.class).withRel("prev-link"));
+        responseResource.add(linkTo(HomeController.class).withRel("prev-link"));
 
 
         return ResponseEntity.status(HttpStatus.OK).body(responseResource);
@@ -204,14 +205,14 @@ public class ApiCotroller {
         BigDecimal valueAverage = new BigDecimal(requestCount).divide(BigDecimal.valueOf(dateGroup), MathContext.DECIMAL32);
 
         ResponseResource responseResource = new ResponseResource();
-        responseResource.setTitle("총 평균 일자별 접속자 통계");
-        responseResource.setDescription("총 평균 일자별 접속자 통계입니다.");
+        responseResource.setTitle("모든 기간 접속 요청 통계");
+        responseResource.setDescription("모든 기간 접속 요청 통계입니다.");
         responseResource.setYear("ALL");
         responseResource.setMonth("ALL");
         responseResource.setDays("ALL");
         responseResource.setTotal_Count(String.valueOf(valueAverage));
         responseResource.add(linkTo(ApiCotroller.class).slash(id).slash("day").slash("average").withSelfRel());
-        responseResource.add(linkTo(ApiCotroller.class).withRel("prev-link"));
+        responseResource.add(linkTo(HomeController.class).withRel("prev-link"));
 
         requestInfoSaveService.requestForWriteBoard(id,"WB");
 
@@ -246,14 +247,14 @@ public class ApiCotroller {
         BigDecimal valueAverage = new BigDecimal(requestCount).divide(BigDecimal.valueOf(dateGroup), MathContext.DECIMAL32);
 
         ResponseResource responseResource = new ResponseResource();
-        responseResource.setTitle("휴일을 제외한 일자별 접속자 통계");
-        responseResource.setDescription("휴일을 제외한 일자별 접속자 통계입니다.");
+        responseResource.setTitle("휴일을 제외한 모든 기간 접속 요청 통계");
+        responseResource.setDescription("휴일을 제외한 모든 기간 접속 요청 통계입니다.");
         responseResource.setYear("ALL");
         responseResource.setMonth("ALL");
-        responseResource.setDays("ALL");
+        responseResource.setDays("Not Holiday");
         responseResource.setTotal_Count(String.valueOf(valueAverage));
         responseResource.add(linkTo(ApiCotroller.class).slash(id).slash("day").slash("average").slash("not-holiday").withSelfRel());
-        responseResource.add(linkTo(ApiCotroller.class).withRel("prev-link"));
+        responseResource.add(linkTo(HomeController.class).withRel("prev-link"));
 
         requestInfoSaveService.requestForWriteBoard(id,"WB");
 
@@ -282,14 +283,14 @@ public class ApiCotroller {
         List<RequestInfoDto> res = userAccessTotalService.findByMonthAndOrgan(year.substring(2, 4), month, organ);
 
         ResponseResource responseResource = new ResponseResource();
-        responseResource.setTitle("2020년 접속자 통계");
-        responseResource.setDescription("2020년 기준 접속자 통계입니다.");
+        responseResource.setTitle(year+"년 "+month+"월 "+organ+"부서 접속 요청 통계");
+        responseResource.setDescription(year+"년 "+month.replace("0","")+"월 "+organ+"부서 기준 요청 통계입니다.");
         responseResource.setTotal_Count(String.valueOf(res.size()));
         responseResource.setYear(year);
         responseResource.setMonth(month);
         responseResource.setDays("ALL");
         responseResource.add(linkTo(ApiCotroller.class).slash(id).slash(year).slash(month).slash("dept").slash(organ).withSelfRel());
-        responseResource.add(linkTo(ApiCotroller.class).withRel("prev-link"));
+        responseResource.add(linkTo(HomeController.class).withRel("prev-link"));
 
         httpSession = request.getSession(true);
 
@@ -319,14 +320,14 @@ public class ApiCotroller {
         List<RequestInfoDto> res = userAccessTotalService.findByOrgan(organ);
 
         ResponseResource responseResource = new ResponseResource();
-        responseResource.setTitle("2020년 접속자 통계");
-        responseResource.setDescription("2020년 기준 접속자 통계입니다.");
+        responseResource.setTitle("모든 기간 "+organ+"부서 요청 통계");
+        responseResource.setDescription("모든 기간 "+organ+"부서 요청 통계입니다.");
         responseResource.setTotal_Count(String.valueOf(res.size()));
         responseResource.setYear("ALL");
         responseResource.setMonth("ALL");
         responseResource.setDays("ALL");
         responseResource.add(linkTo(ApiCotroller.class).slash(id).slash("dept").slash(organ).withSelfRel());
-        responseResource.add(linkTo(ApiCotroller.class).withRel("prev-link"));
+        responseResource.add(linkTo(HomeController.class).withRel("prev-link"));
 
         httpSession = request.getSession(true);
 

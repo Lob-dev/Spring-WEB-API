@@ -34,6 +34,7 @@ public class ExcelController {
         this.excelService = excelService;
     }
 
+
     @GetMapping("/downloadExcelFile")
     public void downloadExcelFile(HttpServletResponse response, Model model) throws IOException {
         List<ExcelResponseDto> res = excelService.findAllData();
@@ -48,6 +49,5 @@ public class ExcelController {
         os.flush();
         os.close();
     }
-
 
 }

@@ -29,13 +29,13 @@ public class ExcelService {
         SXSSFWorkbook workbook = new SXSSFWorkbook();
         SXSSFSheet sheet = workbook.createSheet("API 접속자 통계");
 
-        sheet.setColumnWidth(1, 4000);
-        sheet.setColumnWidth(2, 4000);
-        sheet.setColumnWidth(3, 4000);
-        sheet.setColumnWidth(4, 4000);
-        sheet.setColumnWidth(5, 4000);
-        sheet.setColumnWidth(6, 4000);
-        sheet.setColumnWidth(7, 4000);
+        sheet.setColumnWidth(1, 3500);
+        sheet.setColumnWidth(2, 3500);
+        sheet.setColumnWidth(3, 3500);
+        sheet.setColumnWidth(4, 3500);
+        sheet.setColumnWidth(5, 3500);
+        sheet.setColumnWidth(6, 3500);
+        sheet.setColumnWidth(7, 3500);
 
         CellStyle rowStyle = workbook.createCellStyle();
         rowStyle.setAlignment(HorizontalAlignment.CENTER);
