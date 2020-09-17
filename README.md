@@ -199,9 +199,57 @@ Spring-mvc (5.1.8) + mariadb (2.0.3) + mybatis (3.4.4)
     + 해당 API의 TEST CASE 작성하기 (완료)
     + JPA 학습 해보기 (학습 중)
     <br/>
+    <br/>
 ## 4주차 API 구축을 위한 SQL 작성하기
-  
+  <br/>
+  프로젝트 사용 Framework, Library <br/>
+    + Maven
+    + Spring Boot 2.2.2
+    + Spring JDBC
+    + Spring Hateoas
+    + Spring thymeleaf
+    + Junit4
+    + apache poi
   <br/>
   
-    + API 문서 초안 수정해보기<br/>
+  프로젝트 구성 (Directory)
+    + config (LoginCheckinterceptor, SpringConfig)
+    + controller (Account, Api, Excel, Home Cotroller)
+    + dto (CreateForm, DaysTotal, ExcelFile, RequestInfo, UserDto)
+    + repository (RequestApi, UserAccountRepository)
+    + resource (ResponseResource)
+    + service (Excel, RequestInfoSave, UserAccessTotal, UserAccount)
+    + Thymeleaf (template/Index.html // template/user/CreateUserForm, LoginUserForm.html)
+  <br/>
+  
+  구현 기능
+    + 회원 가입 (HTTP session을 이용한 기본적인 세션처리)
+    + 년도 기준 접속 요청 통계 출력 (JSON)
+    + 년도, 월별 기준 접속 요청 통계 출력 (JSON)
+    + 년도, 월, 일별 기준 접속 요청 통계 출력 (JSON)
+    + 모든 기간의 평균 접속 요청 (JSON)
+    + 휴일을 제외한 모든 기간의 평균 접속 요청 (JSON)
+    + 년도, 월, 부서별 접속 요청 (JSON)
+    + 모든 기간의 부서별 접속 요청 (JSON)
+    + 모든 기간의 접속 요청 엑셀 파일 다운로드
+  <br/>
+  
+  그외
+    + API 문서 수정
+    + List 데이터 추출 학습
+    + JDBC Template 추가 학습
+  
+  아쉬운 점
+    + 테스트 코드의 부재. (Api Controller의 하나의 메서드를 제외한 Test가 없음)
+    + 보일러 플레이트 코드의 존재.
+    + 런타임 Null Exception.
+    + redirect 시 사용자에게 어떤 일이 벌어졌는지 알릴 수 없음.
+    
+    
+    
+    
+    
+    
+    
+    
 
