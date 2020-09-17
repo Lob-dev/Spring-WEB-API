@@ -2,6 +2,7 @@ package com.lob.springboot_api.Repository;
 
 
 import com.lob.springboot_api.dto.DaysTotalDto;
+import com.lob.springboot_api.dto.ExcelResponseDto;
 import com.lob.springboot_api.dto.RequestInfoDto;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
@@ -36,6 +37,21 @@ public class RequestApiRepository {
             return daysTotalDto;
         };
     }
+
+    private RowMapper<ExcelResponseDto> excelRowMapper() {
+        return (rs, rowNum) -> {
+            ExcelResponseDto excelResponseDto = new ExcelResponseDto();
+            excelResponseDto.setRequestID(rs.getLong("requestID"));
+            excelResponseDto.setRequestCode(rs.getString("requestCode"));
+            excelResponseDto.setUserID(rs.getString("userID"));
+            excelResponseDto.setUsername(rs.getString("USERNAME"));
+            excelResponseDto.setHr_Organ(rs.getString("HR_ORGAN"));
+            excelResponseDto.setPassword(rs.getString("PASSWORD"));
+            excelResponseDto.setCreateDate(rs.getString("createDate"));
+            return excelResponseDto;
+        };
+    }
+
 
     public RequestInfoDto save(String requestCode, String userID, String createDate) {
         RequestInfoDto requestInfoDto = new RequestInfoDto();
@@ -88,5 +104,11 @@ public class RequestApiRepository {
         return res;
     }
 
-
+    public List<ExcelResponseDto> findAll() {
+        String sql = "SELECT requestinfo.requestID, requestinfo.requestCode, requestinfo.userID, " +
+                "requestinfo.createDate, user.HR_ORGAN, user.USERNAME, user.PASSWORD FROM requestinfo " +
+                "INNER JOIN user where requestinfo.userID = user.userID order by requestID ";
+        List<ExcelResponseDto> res = jdbcTemplate.query(sql, excelRowMapper());
+        return res;
+    }
 }

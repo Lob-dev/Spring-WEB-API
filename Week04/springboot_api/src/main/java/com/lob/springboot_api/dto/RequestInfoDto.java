@@ -8,7 +8,7 @@ public class RequestInfoDto {
     private String userID;
     private String createDate;
 
-    public void setRequestID(Long requestID) { this.requestID = requestID;}
+    public void setRequestID(Long requestID) { this.requestID = requestID; }
 
     public void setRequestCode(String requestCode) {
         this.requestCode = requestCode;
