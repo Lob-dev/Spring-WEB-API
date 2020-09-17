@@ -1,15 +1,13 @@
 package com.lob.springboot_api.service;
 
 import com.lob.springboot_api.Repository.RequestApiRepository;
-import com.lob.springboot_api.dto.DaysTotalDto;
 import com.lob.springboot_api.dto.ExcelResponseDto;
-import com.lob.springboot_api.dto.RequestInfoDto;
-import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.streaming.SXSSFSheet;
 import org.apache.poi.xssf.streaming.SXSSFWorkbook;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
 
 import java.util.List;
 
@@ -27,48 +25,56 @@ public class ExcelService {
         return this.makeExcelWorkbook(res);
     }
 
-    public SXSSFWorkbook makeExcelWorkbook(List<ExcelResponseDto> list) {
+    public SXSSFWorkbook makeExcelWorkbook(List<ExcelResponseDto> list){
         SXSSFWorkbook workbook = new SXSSFWorkbook();
         SXSSFSheet sheet = workbook.createSheet("API 접속자 통계");
 
-        sheet.setColumnWidth(0, 1500);
-        sheet.setColumnWidth(0, 1500);
-        sheet.setColumnWidth(0, 1500);
-        sheet.setColumnWidth(0, 1500);
-        sheet.setColumnWidth(0, 1500);
-        sheet.setColumnWidth(0, 1500);
-        sheet.setColumnWidth(0, 1500);
+        sheet.setColumnWidth(1, 4000);
+        sheet.setColumnWidth(2, 4000);
+        sheet.setColumnWidth(3, 4000);
+        sheet.setColumnWidth(4, 4000);
+        sheet.setColumnWidth(5, 4000);
+        sheet.setColumnWidth(6, 4000);
+        sheet.setColumnWidth(7, 4000);
+
+        CellStyle rowStyle = workbook.createCellStyle();
+        rowStyle.setAlignment(HorizontalAlignment.CENTER);
+        rowStyle.setVerticalAlignment(VerticalAlignment.CENTER);
 
         Row headerRow = sheet.createRow(0);
 
         Cell headerCell = headerRow.createCell(0);
-        headerCell.setCellValue("requestID");
+        headerCell.setCellValue("요청 수");
 
         headerCell = headerRow.createCell(1);
-        headerCell.setCellValue("requestCode");
+        headerCell.setCellValue("requestID");
 
         headerCell = headerRow.createCell(2);
-        headerCell.setCellValue("userID");
+        headerCell.setCellValue("requestCode");
 
         headerCell = headerRow.createCell(3);
-        headerCell.setCellValue("CreateDate");
+        headerCell.setCellValue("userID");
 
         headerCell = headerRow.createCell(4);
-        headerCell.setCellValue("HR_ORGAN");
+        headerCell.setCellValue("CreateDate");
 
         headerCell = headerRow.createCell(5);
-        headerCell.setCellValue("userName");
+        headerCell.setCellValue("HR_ORGAN");
 
         headerCell = headerRow.createCell(6);
+        headerCell.setCellValue("userName");
+
+        headerCell = headerRow.createCell(7);
         headerCell.setCellValue("Password");
 
-        Row bodyRow = null;
+        Row bodyRow;
         Cell bodyCell = null;
-        for(ExcelResponseDto re : list) {
-            int index = 0;
-            bodyRow = sheet.createRow(index+1);
+        for(int i=0; i<list.size(); i++){
+            ExcelResponseDto re = list.get(i);
+
+            bodyRow = sheet.createRow(i+1);
             bodyCell = bodyRow.createCell(0);
-            bodyCell.setCellValue(index + 1);
+            bodyCell.setCellValue(i + 1);
 
             bodyCell = bodyRow.createCell(1);
             bodyCell.setCellValue(re.getRequestID());
@@ -90,8 +96,9 @@ public class ExcelService {
 
             bodyCell = bodyRow.createCell(7);
             bodyCell.setCellValue(re.getPassword());
-        }
 
+        }
+        
         return workbook;
     }
 
