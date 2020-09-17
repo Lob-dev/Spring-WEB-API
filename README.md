@@ -202,14 +202,15 @@ Spring-mvc (5.1.8) + mariadb (2.0.3) + mybatis (3.4.4)
     <br/>
 ## 4주차 API 구축을 위한 SQL 작성하기
   <br/>
-  + 프로젝트 사용 Framework, Library <br/>
-      + Maven<br/>
-      + Spring Boot 2.2.2<br/>
-      + Spring JDBC<br/>
-      + Spring Hateoas<br/>
-      + Spring thymeleaf<br/>
-      + Junit4<br/>
-      + apache poi<br/>
+  
+  + 프로젝트 사용 Framework, Library 
+      + Maven
+      + Spring Boot 2.2.2
+      + Spring JDBC
+      + Spring Hateoas
+      + Spring thymeleaf
+      + Junit4
+      + apache poi
   <br/>
   
   + 프로젝트 구성 (Directory)
