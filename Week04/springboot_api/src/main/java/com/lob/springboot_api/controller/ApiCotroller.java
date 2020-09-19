@@ -68,7 +68,7 @@ public class ApiCotroller {
         //DB 검색 결과
         List<RequestInfoDto> res = userAccessTotalService.findByYear(year.substring(2, 4));
 
-        ResponseResource responseResource = new ResponseResource.Builder(String.valueOf(res.size()))
+        ResponseResource responseResource = new ResponseResource.Builder(String.valueOf(res.size())) // total count = 요청 수
                 .title("2020년 접속자 통계")
                 .description("2020년 기준 접속자 통계입니다.")
                 .year(year)
