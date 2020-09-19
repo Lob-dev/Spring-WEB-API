@@ -75,29 +75,4 @@ public class ResponseResource extends RepresentationModel {
         Total_Count = builder.total_Count;
     }
 
-    public String getTitle() {
-        return title;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public String getYear() {
-        return year;
-    }
-
-    public String getTotal_Count() {
-        return Total_Count;
-    }
-
-    public String getDays() {
-        return days;
-    }
-
-    public String getMonth() {
-        return month;
-    }
-
-
 }
