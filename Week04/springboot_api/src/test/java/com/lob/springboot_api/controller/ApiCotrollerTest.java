@@ -31,13 +31,18 @@ public class ApiCotrollerTest {
 
     @Test
     public void RequestForYearEvent() throws Exception{
-        ResponseResource responseResource = new ResponseResource();
-        responseResource.setTitle("2020년 접속자 통계");
-        responseResource.setDescription("2020년 기준 접속자 통계입니다.");
-        responseResource.setTotal_Count("50");
-        responseResource.setYear("2020");
+
+        ResponseResource responseResource = new ResponseResource.Builder("50")
+                .title("2020년 접속자 통계")
+                .description("2020년 기준 접속자 통계입니다.")
+                .year("2020")
+                .month("09")
+                .days("ALL")
+                .build();
+
         responseResource.add(linkTo(ApiCotroller.class).slash("2020").withSelfRel());
         responseResource.add(linkTo(ApiCotroller.class).withRel("prev-link"));
+
 
         mockMvc.perform(get("/api/users/2020")
                 .contentType(MediaType.APPLICATION_JSON)

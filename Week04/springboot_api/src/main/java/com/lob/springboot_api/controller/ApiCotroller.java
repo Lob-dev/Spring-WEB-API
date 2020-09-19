@@ -68,14 +68,14 @@ public class ApiCotroller {
         //DB 검색 결과
         List<RequestInfoDto> res = userAccessTotalService.findByYear(year.substring(2, 4));
 
-        //Event Resource setter
-        ResponseResource responseResource = new ResponseResource();
-        responseResource.setTitle("2020년 접속자 통계");
-        responseResource.setDescription("2020년 기준 접속자 통계입니다.");
-        responseResource.setTotal_Count(String.valueOf(res.size()));
-        responseResource.setYear(year);
-        responseResource.setMonth("ALL");
-        responseResource.setDays("ALL");
+        ResponseResource responseResource = new ResponseResource.Builder(String.valueOf(res.size()))
+                .title("2020년 접속자 통계")
+                .description("2020년 기준 접속자 통계입니다.")
+                .year(year)
+                .month("ALL")
+                .days("ALL")
+                .build();
+
         responseResource.add(linkTo(ApiCotroller.class).slash(year).withSelfRel());
         responseResource.add(linkTo(HomeController.class).withRel("prev-link"));
 
@@ -113,13 +113,14 @@ public class ApiCotroller {
 
         List<RequestInfoDto> res = userAccessTotalService.findByMonths(year.substring(2, 4), month);
 
-        ResponseResource responseResource = new ResponseResource();
-        responseResource.setTitle(year+"년 접속 요청 통계");
-        responseResource.setDescription(year+"년 "+month.replace("0","")+"월 기준 접속 요청 통계입니다.");
-        responseResource.setTotal_Count(String.valueOf(res.size()));
-        responseResource.setYear(year);
-        responseResource.setMonth(month);
-        responseResource.setDays("ALL");
+        ResponseResource responseResource = new ResponseResource.Builder(String.valueOf(res.size()))
+                .title(year+"년 접속 요청 통계")
+                .description(year+"년 "+month.replace("0","")+"월 기준 접속 요청 통계입니다.")
+                .year(year)
+                .month(month)
+                .days("ALL")
+                .build();
+
         responseResource.add(linkTo(ApiCotroller.class).slash(id).slash(year).slash(month).withSelfRel());
         responseResource.add(linkTo(HomeController.class).withRel("prev-link"));
 
@@ -165,16 +166,16 @@ public class ApiCotroller {
 
         List<RequestInfoDto> res = userAccessTotalService.findByDays(year.substring(2, 4), month, day);
 
-        ResponseResource responseResource = new ResponseResource();
-        responseResource.setTitle(year+"년 "+month+"월 "+day+"일 기준 요청 통계");
-        responseResource.setDescription(year+"년 "+month.replace("0","")+"월 "+day+"일 기준 접속 요청 통계입니다.");
-        responseResource.setTotal_Count(String.valueOf(res.size()));
-        responseResource.setYear(year);
-        responseResource.setMonth(month);
-        responseResource.setDays(day);
+        ResponseResource responseResource = new ResponseResource.Builder(String.valueOf(res.size()))
+                .title(year+"년 "+month+"월 "+day+"일 기준 요청 통계")
+                .description(year+"년 "+month.replace("0","")+"월 "+day+"일 기준 접속 요청 통계입니다.")
+                .year(year)
+                .month(month)
+                .days(day)
+                .build();
+
         responseResource.add(linkTo(ApiCotroller.class).slash(year).slash(month).slash(day).withSelfRel());
         responseResource.add(linkTo(HomeController.class).withRel("prev-link"));
-
 
         return ResponseEntity.status(HttpStatus.OK).body(responseResource);
     }
@@ -207,13 +208,14 @@ public class ApiCotroller {
         }
         BigDecimal valueAverage = new BigDecimal(requestCount).divide(BigDecimal.valueOf(dateGroup), MathContext.DECIMAL32);
 
-        ResponseResource responseResource = new ResponseResource();
-        responseResource.setTitle("모든 기간 접속 요청 통계");
-        responseResource.setDescription("모든 기간 접속 요청 통계입니다.");
-        responseResource.setYear("ALL");
-        responseResource.setMonth("ALL");
-        responseResource.setDays("ALL");
-        responseResource.setTotal_Count(String.valueOf(valueAverage));
+        ResponseResource responseResource = new ResponseResource.Builder(String.valueOf(valueAverage))
+                .title("모든 기간 평균 접속 요청 통계")
+                .description("모든 기간 평균 접속 요청 통계입니다.")
+                .year("ALL")
+                .month("ALL")
+                .days("ALL")
+                .build();
+
         responseResource.add(linkTo(ApiCotroller.class).slash(id).slash("day").slash("average").withSelfRel());
         responseResource.add(linkTo(HomeController.class).withRel("prev-link"));
 
@@ -249,13 +251,14 @@ public class ApiCotroller {
         }
         BigDecimal valueAverage = new BigDecimal(requestCount).divide(BigDecimal.valueOf(dateGroup), MathContext.DECIMAL32);
 
-        ResponseResource responseResource = new ResponseResource();
-        responseResource.setTitle("휴일을 제외한 모든 기간 접속 요청 통계");
-        responseResource.setDescription("휴일을 제외한 모든 기간 접속 요청 통계입니다.");
-        responseResource.setYear("ALL");
-        responseResource.setMonth("ALL");
-        responseResource.setDays("Not Holiday");
-        responseResource.setTotal_Count(String.valueOf(valueAverage));
+        ResponseResource responseResource = new ResponseResource.Builder(String.valueOf(valueAverage))
+                .title("휴일을 제외한 모든 기간 평균 접속 요청 통계")
+                .description("휴일을 제외한 모든 기간 접속 요청 통계입니다.")
+                .year("ALL")
+                .month("ALL")
+                .days("ALL")
+                .build();
+
         responseResource.add(linkTo(ApiCotroller.class).slash(id).slash("day").slash("average").slash("not-holiday").withSelfRel());
         responseResource.add(linkTo(HomeController.class).withRel("prev-link"));
 
@@ -282,16 +285,16 @@ public class ApiCotroller {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("This Request {month} is incorrect Value.");
         }
         organ = organ.replace("#20", " ");
-        System.out.println(organ);
         List<RequestInfoDto> res = userAccessTotalService.findByMonthAndOrgan(year.substring(2, 4), month, organ);
 
-        ResponseResource responseResource = new ResponseResource();
-        responseResource.setTitle(year+"년 "+month+"월 "+organ+"부서 접속 요청 통계");
-        responseResource.setDescription(year+"년 "+month.replace("0","")+"월 "+organ+"부서 기준 요청 통계입니다.");
-        responseResource.setTotal_Count(String.valueOf(res.size()));
-        responseResource.setYear(year);
-        responseResource.setMonth(month);
-        responseResource.setDays("ALL");
+        ResponseResource responseResource = new ResponseResource.Builder(String.valueOf(res.size()))
+                .title(year+"년 "+month+"월 "+organ+"부서 접속 요청 통계")
+                .description(year+"년 "+month.replace("0","")+"월 "+organ+"부서 기준 요청 통계입니다.")
+                .year(year)
+                .month(month)
+                .days("ALL")
+                .build();
+
         responseResource.add(linkTo(ApiCotroller.class).slash(id).slash(year).slash(month).slash("dept").slash(organ).withSelfRel());
         responseResource.add(linkTo(HomeController.class).withRel("prev-link"));
 
@@ -319,16 +322,16 @@ public class ApiCotroller {
 
 
         organ = organ.replace("#20", " ");
-        System.out.println(organ);
         List<RequestInfoDto> res = userAccessTotalService.findByOrgan(organ);
 
-        ResponseResource responseResource = new ResponseResource();
-        responseResource.setTitle("모든 기간 "+organ+"부서 요청 통계");
-        responseResource.setDescription("모든 기간 "+organ+"부서 요청 통계입니다.");
-        responseResource.setTotal_Count(String.valueOf(res.size()));
-        responseResource.setYear("ALL");
-        responseResource.setMonth("ALL");
-        responseResource.setDays("ALL");
+        ResponseResource responseResource = new ResponseResource.Builder(String.valueOf(res.size()))
+                .title("모든 기간 "+organ+"부서 요청 통계")
+                .description("모든 기간 "+organ+"부서 요청 통계입니다.")
+                .year("ALL")
+                .month("ALL")
+                .days("ALL")
+                .build();
+
         responseResource.add(linkTo(ApiCotroller.class).slash(id).slash("dept").slash(organ).withSelfRel());
         responseResource.add(linkTo(HomeController.class).withRel("prev-link"));
 
