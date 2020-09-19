@@ -13,7 +13,7 @@ public class ResponseResource extends RepresentationModel {
 
     public static class Builder {
 
-        private final String total_Count;
+        private final String total_Count; // 필수 인자
 
         private String title;
         private String description;
