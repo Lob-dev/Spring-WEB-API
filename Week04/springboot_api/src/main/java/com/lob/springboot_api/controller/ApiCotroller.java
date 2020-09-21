@@ -57,13 +57,14 @@ public class ApiCotroller {
 
         //검색한 대상의 정보를 저장
         //Path Variable이 없으므로 = 회원이 아니므로 (user id, name 등) guest 로 작성
-        UserDto user = new UserDto();
-        user.setUserID("guest");
-        user.setUsername("Guest");
-        user.setHr_Organ("None");
+        UserDto userDto = new UserDto.Builder()
+                .userId("guest")
+                .hr_Organ("None")
+                .username("Guest")
+                .build();
 
         //접속 기록 저장
-        requestInfoSaveService.requestForWriteBoard(user.getUserID(),"WB");
+        requestInfoSaveService.requestForWriteBoard(userDto.getUserID(),"WB");
 
         //DB 검색 결과
         List<RequestInfoDto> res = userAccessTotalService.findByYear(year.substring(2, 4));

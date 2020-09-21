@@ -1,5 +1,7 @@
 package com.lob.springboot_api.dto;
 
+import org.apache.catalina.User;
+
 public class UserDto {
 
     private String userID;
@@ -23,19 +25,55 @@ public class UserDto {
         return password;
     }
 
-    public void setUserID(String userID) {
+
+    public static class Builder {
+
+        private String userID;
+        private String hr_Organ;
+        private String username;
+        private String password;
+
+        public Builder userId(String val) {
+            userID = val;
+            return this;
+        }
+
+        public Builder hr_Organ(String val) {
+            hr_Organ = val;
+            return this;
+        }
+
+        public Builder username(String val) {
+            username = val;
+            return this;
+        }
+
+        public Builder password(String val) {
+            password = val;
+            return this;
+        }
+
+        public UserDto build(){
+            return new UserDto(this);
+        }
+
+    }
+
+    public UserDto() {
+    }
+
+    public UserDto(String userID, String hr_Organ, String username, String password) {
         this.userID = userID;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public void setHr_Organ(String hr_Organ) {
         this.hr_Organ = hr_Organ;
-    }
-
-    public void setPassword(String password) {
+        this.username = username;
         this.password = password;
     }
+
+    private UserDto(Builder builder) {
+        userID = builder.userID;
+        hr_Organ = builder.hr_Organ;
+        username = builder.username;
+        password = builder.password;
+    }
+
 }

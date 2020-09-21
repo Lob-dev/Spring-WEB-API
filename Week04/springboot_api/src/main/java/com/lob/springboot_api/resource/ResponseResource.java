@@ -66,7 +66,7 @@ public class ResponseResource extends RepresentationModel {
     }
 
     //빌더 패턴
-    public ResponseResource(Builder builder) {
+    private ResponseResource(Builder builder) {
         title       = builder.title;
         description = builder.description;
         year        = builder.year;

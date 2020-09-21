@@ -29,14 +29,15 @@ public class AccountController {
 
     @PostMapping("/account")
     public String userAccount(CreateForm createform) {
-        UserDto user = new UserDto();
 
-        user.setUserID(createform.getId());
-        user.setUsername(createform.getName());
-        user.setHr_Organ(createform.getOrgan());
-        user.setPassword(createform.getPassword());
+        UserDto userDto = new UserDto.Builder()
+                .userId(createform.getId())
+                .password(createform.getPassword())
+                .hr_Organ(createform.getOrgan())
+                .username(createform.getName())
+                .build();
 
-        String res = userAccountService.join(user);
+        String res = userAccountService.join(userDto);
         if(res.equals("이미 있는 유저입니다.")){
             return res;
         }
@@ -50,11 +51,14 @@ public class AccountController {
 
     @PostMapping("/login")
     public String userLogin(HttpSession httpSession, CreateForm createform, Errors errors){
-        UserDto userDto = new UserDto();
-        userDto.setUserID(createform.getId());
-        userDto.setPassword(createform.getPassword());
-        userDto.setHr_Organ(createform.getOrgan());
-        userDto.setUsername(createform.getName());
+
+        UserDto userDto = new UserDto.Builder()
+                .userId(createform.getId())
+                .password(createform.getPassword())
+                .hr_Organ(createform.getOrgan())
+                .username(createform.getName())
+                .build();
+
         boolean res = userAccountService.findByUserAndPassword(createform.getId(), createform.getPassword());
         if(res){ httpSession.setAttribute("user",userDto); }
         return "redirect:/";
