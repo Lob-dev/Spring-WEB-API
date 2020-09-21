@@ -42,14 +42,15 @@ public class RequestApiRepository {
 
     private RowMapper<ExcelFileDto> excelRowMapper() {
         return (rs, rowNum) -> {
-            ExcelFileDto excelFileDto = new ExcelFileDto();
-            excelFileDto.setRequestID(rs.getLong("requestID"));
-            excelFileDto.setRequestCode(rs.getString("requestCode"));
-            excelFileDto.setUserID(rs.getString("userID"));
-            excelFileDto.setUsername(rs.getString("USERNAME"));
-            excelFileDto.setHr_Organ(rs.getString("HR_ORGAN"));
-            excelFileDto.setPassword(rs.getString("PASSWORD"));
-            excelFileDto.setCreateDate(rs.getString("createDate"));
+            ExcelFileDto excelFileDto = new ExcelFileDto.Builder()
+                    .requestID(rs.getLong("requestID"))
+                    .requestCode(rs.getString("requestCode"))
+                    .userID(rs.getString("userID"))
+                    .username(rs.getString("USERNAME"))
+                    .organ(rs.getString("HR_ORGAN"))
+                    .password(rs.getString("PASSWORD"))
+                    .createDate(rs.getString("createDate"))
+                    .build();
             return excelFileDto;
         };
     }

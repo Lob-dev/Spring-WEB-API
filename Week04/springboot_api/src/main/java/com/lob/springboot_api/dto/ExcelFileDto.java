@@ -64,7 +64,7 @@ public class ExcelFileDto {
         this.createDate = createDate;
     }
 
-    public class Builder {
+    public static class Builder {
 
         private Long requestID;
         private String requestCode;
