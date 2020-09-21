@@ -1,7 +1,5 @@
 package com.lob.springboot_api.dto;
 
-import org.apache.catalina.User;
-
 public class UserDto {
 
     private String userID;
@@ -62,12 +60,6 @@ public class UserDto {
     public UserDto() {
     }
 
-    public UserDto(String userID, String hr_Organ, String username, String password) {
-        this.userID = userID;
-        this.hr_Organ = hr_Organ;
-        this.username = username;
-        this.password = password;
-    }
 
     private UserDto(Builder builder) {
         userID = builder.userID;

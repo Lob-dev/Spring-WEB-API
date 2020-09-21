@@ -5,12 +5,34 @@ public class DaysTotalDto {
     private String day;
     private long count;
 
-    public void setDay(String day) {
-        this.day = day;
+
+    public static class Builder {
+
+        private String day;
+        private Long count;
+
+        public Builder day(String val){
+            day = val;
+            return this;
+        }
+
+        public Builder count(long val){
+            count = val;
+            return this;
+        }
+
+        public DaysTotalDto build(){
+            return new DaysTotalDto(this);
+        }
+
     }
 
-    public void setCount(long count) {
-        this.count = count;
+    public DaysTotalDto() {
+    }
+
+    public DaysTotalDto(Builder builder) {
+        day = builder.day;
+        count = builder.count;
     }
 
     public long getCount() {

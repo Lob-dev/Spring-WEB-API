@@ -21,19 +21,21 @@ public class RequestApiRepository {
 
     private RowMapper<RequestInfoDto> rowMapper() {
         return (rs, rowNum) -> {
-            RequestInfoDto requestInfoDto = new RequestInfoDto();
-            requestInfoDto.setRequestID(rs.getLong("requestID"));
-            requestInfoDto.setUserID(rs.getString("userID"));
-            requestInfoDto.setRequestCode(rs.getString("requestCode"));
-            requestInfoDto.setCreateDate(rs.getString("createDate"));
+            RequestInfoDto requestInfoDto = new RequestInfoDto.Builder()
+                    .requestID(rs.getLong("requestID"))
+                    .userID(rs.getString("userID"))
+                    .requestCode(rs.getString("requestCode"))
+                    .createDate(rs.getString("createDate"))
+                    .build();
             return requestInfoDto;
         };
     }
     private RowMapper<DaysTotalDto> dateRowMapper() {
         return (rs, rowNum) -> {
-            DaysTotalDto daysTotalDto = new DaysTotalDto();
-            daysTotalDto.setDay(rs.getString("day"));
-            daysTotalDto.setCount(rs.getLong("count"));
+            DaysTotalDto daysTotalDto = new DaysTotalDto.Builder()
+            .day(rs.getString("day"))
+            .count(rs.getLong("count"))
+            .build();
             return daysTotalDto;
         };
     }

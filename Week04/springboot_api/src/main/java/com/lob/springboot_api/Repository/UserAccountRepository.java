@@ -20,10 +20,11 @@ public class UserAccountRepository {
 
     private RowMapper<UserDto> rowMapper() {
         return (rs, rowNum) -> {
-            UserDto user = new UserDto();
-            user.setUserID(rs.getString("userID"));
-            user.setHr_Organ(rs.getString("HR_ORGAN"));
-            user.setUsername(rs.getString("username"));
+            UserDto user = new UserDto.Builder()
+                    .userId(rs.getString("userID"))
+                    .hr_Organ(rs.getString("HR_ORGAN"))
+                    .username(rs.getString("username"))
+                    .build();
             return user;
         };
     }

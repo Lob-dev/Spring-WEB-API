@@ -64,5 +64,67 @@ public class ExcelFileDto {
         this.createDate = createDate;
     }
 
+    public class Builder {
+
+        private Long requestID;
+        private String requestCode;
+        private String userID;
+        private String createDate;
+        private String hr_Organ;
+        private String username;
+        private String password;
+
+        public Builder requestID(Long val){
+            requestID = val;
+            return this;
+        }
+
+        public Builder requestCode(String val){
+            requestCode = val;
+            return this;
+        }
+
+        public Builder userID(String val){
+            userID = val;
+            return this;
+        }
+
+        public Builder createDate(String val){
+            createDate = val;
+            return this;
+        }
+
+        public Builder organ(String val){
+            hr_Organ = val;
+            return this;
+        }
+
+        public Builder username(String val){
+            username = val;
+            return this;
+        }
+
+        public Builder password(String val){
+            password = val;
+            return this;
+        }
+
+        public ExcelFileDto build() {
+            return new ExcelFileDto(this);
+        }
+    }
+
+    public ExcelFileDto() {
+    }
+
+    public ExcelFileDto(Builder builder){
+        requestID = builder.requestID;
+        requestCode = builder.requestCode;
+        userID = builder.userID;
+        createDate = builder.createDate;
+        hr_Organ = builder.hr_Organ;
+        username = builder.username;
+        password = builder.password;
+    }
 
 }
